@@ -2,9 +2,9 @@ include<../scad/config.scad>
 include<../libScad/mCube.scad>
 include<../libScad/mCyl.scad>
 
-$showMods=false;
-
-mPartXXX();
+if ($showL1 == undef){
+    mPartXXX();
+}
 
 module mPartXXX(pX=0, pY=0, pZ=0, rX=0, rY=0, rZ=0, clr="lightgrey"){        
         translate([(pX), (pY), (pZ)])

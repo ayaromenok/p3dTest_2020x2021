@@ -1,5 +1,5 @@
-include<../scad/config.scad>
-if($showMods == undef){
+//include<../scad/config.scad>
+if($showL0 == undef){
     mCube();
 }
 
