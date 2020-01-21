@@ -1,6 +1,7 @@
 //supportBot();
+
 //supportLeft();
-supportRight();
+//supportRight();
 
 module supportBot(pX=0, pY=0, pZ=0, rX=0, rY=0, rZ=0, size=150, dia=30, Fn=6)
 {
@@ -8,15 +9,24 @@ module supportBot(pX=0, pY=0, pZ=0, rX=0, rY=0, rZ=0, size=150, dia=30, Fn=6)
     rotate([rX, rY, rZ])    
     {
         translate([0,120,0,])
-            cube([5, 90, 5]);
+            cube([5, 80, 5]);
         translate([115,120,0,])
-            cube([5, 90, 5]);
+            cube([5, 80, 5]);
         translate([0,15,0,])
             cube([120, 5, 5]);
         translate([0,75,0,])
             cube([120, 5, 5]);
         translate([0,130,0,])
             cube([120, 5, 5]);
+        MxHolder(pX=20,pY=23.5);
+        MxHolder(pX=100,pY=23.5);
+        MxHolder(pX=20,pY=83.5);
+        MxHolder(pX=100,pY=71.5);
+        MxHolder(pX=20,pY=126.5);
+        MxHolder(pX=100,pY=126.5);
+        MxHolder(pX=8,pY=195);
+        MxHolder(pX=112,pY=195);
+        
         difference(){
             translate([0,15,0])
                 cube([5,size-30,20]);
@@ -113,3 +123,18 @@ module supportRight(pX=0, pY=0, pZ=0, rX=0, rY=0, rZ=0, size=150, dia=20, Fn=6)
             cube([10,5,170]);
     }//transform
 }//supportRIght
+
+module MxHolder(pX=0, pY=0, pZ=0, rX=0, rY=0, rZ=0, Mx=3)
+{
+    translate([pX, pY, pZ])
+    rotate([rX, rY, rZ+180])    
+    {
+        difference(){
+            cylinder(3, Mx*1.5, Mx*1.5, $fn=Mx*8);
+            translate([0,0,-1])
+                cylinder(5, Mx/2+0.3, Mx/2+0.3, $fn=Mx*6);
+            translate([0,0,2])
+                cylinder(1.5, Mx/2+0.3, Mx*1.3, $fn=Mx*6);
+        }//dif
+    }//transform
+}//module MxHholder
