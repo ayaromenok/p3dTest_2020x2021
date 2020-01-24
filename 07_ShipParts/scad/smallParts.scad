@@ -18,10 +18,14 @@ translate([-30,0,0]){
         translate([-10,0,5])
         rotate([0,90,0])
             cylinder(32,2,2,$fn=16);
+        translate([1.2,10,10])        
+            sphere(2, $fn=20);
+        translate([1.2,-10,10])        
+            sphere(2, $fn=20);
     }
     //support
-    translate([-5,-1,0])
-        cube([5,2,3]);
+    translate([-5,-0.5,0])
+        cube([5,1,3]);
 
     difference(){
         translate([-5,0,5])
@@ -31,6 +35,14 @@ translate([-30,0,0]){
         rotate([0,90,0])
             cylinder(9,1.8,1.8,$fn=16);
     }//diff
+    
+    translate([-1.6,10,10])
+        rotate([0,90,0])
+            cylinder(2,3,3,$fn=16);
+    translate([-1.6,-10,10])
+        rotate([0,90,0])
+            cylinder(2,3,3,$fn=16);
+    
         
 }//translate
 
@@ -44,8 +56,8 @@ translate([-15,-15,0]){
             cylinder(32,2,2,$fn=16);
     }//diff
     //support
-    translate([0,14,0])
-        cube([30,2,3]);
+    translate([0,14.5,0])
+        cube([30,1,3]);
 
     difference(){
         translate([0,15,5])
@@ -55,4 +67,8 @@ translate([-15,-15,0]){
         rotate([0,90,0])
             cylinder(32,1.8,1.8,$fn=16);
     }//diff
+    translate([0.3,25,10])        
+        sphere(1.5, $fn=20);
+    translate([0.3,5,10])        
+        sphere(1.5, $fn=20);
 }//translate
