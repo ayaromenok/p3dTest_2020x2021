@@ -38,10 +38,10 @@ translate([-30,0,0]){
     
     translate([-1.6,10,10])
         rotate([0,90,0])
-            cylinder(2,3,3,$fn=16);
+            cylinder(1.6,3,3,$fn=16);
     translate([-1.6,-10,10])
         rotate([0,90,0])
-            cylinder(2,3,3,$fn=16);
+            cylinder(1.6,3,3,$fn=16);
     
         
 }//translate
