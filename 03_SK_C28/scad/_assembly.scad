@@ -1,3 +1,4 @@
+include <sector.scad>
 $gFn = $preview ? 1 : 8;
 rTwr=71;
 
@@ -15,3 +16,4 @@ polygon(
 
 
 cylinder(10, rTwr, rTwr, $fn=$gFn*rTwr);
+sector(pX=-rTwr*2, fN=$gFn);
