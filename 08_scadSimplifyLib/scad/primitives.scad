@@ -6,6 +6,8 @@
 
 //yCube(szx=5, py=3, rz=30, mx=1, clr="red");
 //yCyl(px=7, py=5, rb=3, clr="green");
+//yPoly(p=[[-5,0],[5,0],[0,5]],szz=3);
+
 //szx - SiZe X
 module yCube(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, szx=1, szy=1, szz=1, clr = "grey") {
     mirror([mx,my,mz])
@@ -24,4 +26,15 @@ module yCyl(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz
     scale([sx,sy,sz])
     color(clr)
         cylinder(szz, rb, rt, $fn=fn*((rb>rt)?rb:rt));    
+}//yCyl
+
+
+module yPoly(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, p=[[0,0],[10,0],[0,10]], szz=1, clr = "grey") {
+    mirror([mx,my,mz])
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    scale([sx,sy,sz])
+    color(clr)
+        linear_extrude(szz)
+            polygon(p);
 }//yCube
