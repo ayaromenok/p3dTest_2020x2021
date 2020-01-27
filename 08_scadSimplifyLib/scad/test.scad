@@ -2,6 +2,7 @@ include <primitives.scad>
 //longeron();
 //gun();
 
+yVersion();
 yCube(szx=5, px=10);
 yCyl(rb=5, rt=3, px=-10);
 yPoly(p=[[-3,0], [3,0], [1,3]], py=-5);
