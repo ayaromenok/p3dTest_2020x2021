@@ -7,7 +7,8 @@
 //yCube(szx=5, py=3, rz=30, mx=1, clr="red");
 //yCyl(px=7, py=5, rb=3, clr="green");
 //yPoly(p=[[-5,0],[5,0],[0,5]],szz=3);
-ySec(r=5);
+//ySec(r=5);
+yArc(r=15, px=5);
 //szx - SiZe X
 module yCube(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, szx=1, szy=1, szz=1, clr = "grey") {
     mirror([mx,my,mz])
@@ -40,7 +41,7 @@ module yPoly(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, m
 }//yCube
 
 //https://openhome.cc/eGossip/OpenSCAD/SectorArc.html
-module ySec(r=5, a=[45,135],  szz=1, fn=($preview ? 3:10), px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, clr = "grey") {
+module ySec(r=5, a=[45,135], szz=1, fn=($preview ? 3:10), px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, clr = "grey") {
     _r = r / cos(180 / fn);
     step = -360 / fn;
 
@@ -61,6 +62,17 @@ module ySec(r=5, a=[45,135],  szz=1, fn=($preview ? 3:10), px=0, py=0, pz=0, rx=
                 circle(r, $fn = r*fn);
                 polygon(points);
             }//diff
-}
+}//module ySec
 
+module yArc(r=5, a=[45,135], w=1, szz=1, fn=($preview ? 3:10), px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, clr = "grey"){
+    mirror([mx,my,mz])
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    scale([sx,sy,sz])
+    color(clr)
+        difference(){
+            ySec(r=r+w, a=a, szz=szz, fn=fn);
+            ySec(r=(r), a=a, szz=(szz+2), pz=-1, fn=fn);
+        }//diff
+}
 
