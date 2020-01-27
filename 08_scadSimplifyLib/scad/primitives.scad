@@ -8,7 +8,7 @@
 //yCyl(px=7, py=5, rb=3, clr="green");
 //yPoly(p=[[-5,0],[5,0],[0,5]],szz=3);
 //ySec(r=5);
-yArc(r=15, px=5);
+//yArc(r=15, px=5);
 //szx - SiZe X
 module yCube(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, szx=1, szy=1, szz=1, clr = "grey") {
     mirror([mx,my,mz])

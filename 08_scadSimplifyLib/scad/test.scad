@@ -1,6 +1,14 @@
 include <primitives.scad>
 //longeron();
-gun();
+//gun();
+
+yCube(szx=5, px=10);
+yCyl(rb=5, rt=3, px=-10);
+yPoly(p=[[-3,0], [3,0], [1,3]], py=-5);
+ySec(r=7);
+yArc(r=10);
+
+//test modules
 module gun(){
     difference(){
         union(){
