@@ -7,7 +7,7 @@
 //yCube(szx=5, py=3, rz=30, mx=1, clr="red");
 //yCyl(px=7, py=5, rb=3, clr="green");
 //yPoly(p=[[-5,0],[5,0],[0,5]],szz=3);
-
+ySec();
 //szx - SiZe X
 module yCube(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, szx=1, szy=1, szz=1, clr = "grey") {
     mirror([mx,my,mz])
@@ -38,3 +38,29 @@ module yPoly(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, m
         linear_extrude(szz)
             polygon(p);
 }//yCube
+
+//https://openhome.cc/eGossip/OpenSCAD/SectorArc.html
+module ySec(r=5, a=[45,135],  szz=1, fn=($preview ? 10:50), px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, clr = "grey") {
+    _r = r / cos(180 / fn);
+    step = -360 / fn;
+
+    points = concat([[0, 0]],
+        [for(_a = [a[0] : step : a[1] - 360]) 
+            [_r * cos(_a), _r * sin(_a)]
+        ],
+        [[_r * cos(a[1]), _r * sin(a[1])]]
+    );
+
+    mirror([mx,my,mz])
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    scale([sx,sy,sz])
+    color(clr)
+        linear_extrude(szz)
+            difference() {
+                circle(r, $fn = fn);
+                polygon(points);
+            }//diff
+}
+
+
