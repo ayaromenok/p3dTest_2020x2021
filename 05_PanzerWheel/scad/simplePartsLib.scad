@@ -1,10 +1,12 @@
 include <../../08_scadSimplifyLib/scad/primitives.scad>
 
-roadWheel(support=6, supBolts=false);
+//roadWheel(support=6, supBolts=false);
 //roadWheel(px=50);
 
-module roadWheel(px=0, py=0, pz=0, support=0, supBolts=true){
-    translate([px,py,pz]){
+module roadWheel(px=0, py=0, pz=0, rx=0, ry=0, rz=0, support=0, supBolts=true){
+    translate([px,py,pz])
+    rotate([rx,ry,rz])
+    {
         
         //main part
         difference(){
