@@ -1,38 +1,55 @@
 include <../../05_PanzerWheel/scad/simplePartsLib.scad>
 
-
-chassis(px=15, py=9,pz=10);
-//torsion();
+//torsion(rx=-90);
 //cap();
-//torsion(px=17.9, py=1, pz=9, rx=-90, ry=150, showMetall=true);
-//roadWheelExt(px=0, py=-6);
-//torsion(px=47.3, py=1, pz=10, rx=-90, ry=150, showMetall=true);
-//roadWheelInt(px=30, py=-6);
-//torsion(px=12.7, py=62, pz=10, rx=-90, ry=150, rz=180, showMetall=true);
-//torsion(px=(12.7-30), py=62, pz=10, rx=-90, ry=150, rz=180, showMetall=true);
-
+//*
+//chassis(px=15, py=9,pz=10);
+/*
+for (i=[0:60:170]){ 
+    //single wheel
+    torsion(px=-12.1+i, py=1, pz=9, rx=-90, ry=150, showMetall=true);
+    roadWheelExt(px=-30+i, py=-6);
+    torsion(px=(47.8-90)+i, py=1, pz=9, rx=-90, ry=150, showMetall=true);
+    roadWheelInt(px=-60+i, py=-6);
+    
+   //dual wheel 
+    torsion(px=12.7-60+i, py=62, pz=10, rx=-90, ry=150, rz=180, showMetall=true);
+    roadWheelIntDual(px=-60+i, py=69, rz=180);
+    torsion(px=(12.7-90)+i, py=62, pz=10, rx=-90, ry=150, rz=180, showMetall=true);  
+    roadWheelExtDual(px=-30+i, py=86, rz=180);
+ }//for
+//*/
 module chassis(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetall=false){
     translate([px,py,pz])
     rotate([rx,ry,rz]){
         
         difference(){
-            yCube(szx=80, szy=7, szz=8, py=-2);
-            yCyl(rb=2.4, rt=2.4, szz=10, px=32.4, py=5, pz=5, rx=90);
-            yCyl(rb=2.4, rt=2.4, szz=10, px=2.4, py=5, pz=5, rx=90);
-        }//dif
-        difference(){
-            yCube(szx=80, szy=7, szz=8, py=47);
-            yCyl(rb=2.4, rt=2.4, szz=10, px=-32.2, py=53, pz=5, rx=90);
-            yCyl(rb=2.4, rt=2.4, szz=10, px=-2.2, py=53, pz=5, rx=90);
+            yCube(szx=200, szy=7, szz=8, py=-2);
+            for (i=[0:30:200]){ 
+                yCyl(rb=2.5, rt=2.5, szz=10, px=92.4-i, py=4, pz=5, rx=90);                
+            }//for
         }//dif
         
-        //
-        yCube(szx=3, szy=50, szz=8, px=38, py=24);
-        yCube(szx=3, szy=50, szz=8, px=-38, py=24);       
-        torsionHolder(py=1);
-        torsionHolder(px=-30,py=1);
-        torsionHolder(py=44,rz=180);
-        torsionHolder(px=30,py=44,rz=180);
+        difference(){
+            yCube(szx=200, szy=7, szz=8, py=47);
+            for (i=[0:30:200]){ 
+                yCyl(rb=2.5, rt=2.5, szz=10, px=87.8-i, py=53, pz=5, rx=90);
+            }//for        
+        }//dif
+        
+        //perpendicular
+        yCube(szx=3, szy=50, szz=8, px=48, py=24);
+        yCube(szx=3, szy=50, szz=8, px=-48, py=24);       
+        
+        //holders
+        for (i=[0:30:200]){ 
+            torsionHolder(px=-90+i,py=2);
+        }//for
+        
+        for (i=[0:30:200]){ 
+            torsionHolder(px=-90+i,py=44,rz=180);
+        }//for
+        
         
     }//transform
 }//module chassis
