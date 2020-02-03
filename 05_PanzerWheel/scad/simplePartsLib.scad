@@ -1,7 +1,12 @@
 include <../../08_scadSimplifyLib/scad/primitives.scad>
 
+//single int
 //roadWheel(support=8, supBolts=true);
-//roadWheel(support=1, supBolts=false);
+//roadWheel(support=1, supBolts=false, px=50);
+//single ext
+//roadWheel(support=8, supBolts=false, py=50);
+//roadWheel(support=1, supBolts=true, px=50, py=50);
+
 //roadWheel(px=50);
 
 module roadWheel(px=0, py=0, pz=0, rx=0, ry=0, rz=0, support=0, supBolts=true){
@@ -12,12 +17,12 @@ module roadWheel(px=0, py=0, pz=0, rx=0, ry=0, rz=0, support=0, supBolts=true){
         //main part
         difference(){
             yCyl(rb=20, rt=6, szz=3);
-            yCyl(rb=1.3, rt=1.3, szz=6, pz=-1);
+            yCyl(rb=1.4, rt=1.4, szz=6, pz=-1);
         }//diff
         //support
         difference(){
             yCyl(rb=6, rt=6, szz=support, pz=support/2+1.5);
-            yCyl(rb=1.3, rt=1.3, szz=(support+2), pz=support/2+1.5);
+            yCyl(rb=1.4, rt=1.4, szz=(support+2), pz=support/2+1.5);
         }//diff
         //tire support
         difference(){
