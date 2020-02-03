@@ -43,7 +43,7 @@ module chassis(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetall=false){
         
         //holders
         for (i=[0:30:200]){ 
-            torsionHolder(px=-90+i,py=2);
+            torsionHolder(px=-90+i,py=1);
         }//for
         
         for (i=[0:30:200]){ 
