@@ -24,14 +24,14 @@ module chassis(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetall=false){
     rotate([rx,ry,rz]){
         
         difference(){
-            yCube(szx=200, szy=7, szz=8, py=-2);
+            yCube(szx=194, szy=7, szz=8, py=-2);
             for (i=[0:30:200]){ 
                 yCyl(rb=2.5, rt=2.5, szz=10, px=92.4-i, py=4, pz=5, rx=90);                
             }//for
         }//dif
         
         difference(){
-            yCube(szx=200, szy=7, szz=8, py=47);
+            yCube(szx=194, szy=7, szz=8, py=47);
             for (i=[0:30:200]){ 
                 yCyl(rb=2.5, rt=2.5, szz=10, px=87.8-i, py=53, pz=5, rx=90);
             }//for        
