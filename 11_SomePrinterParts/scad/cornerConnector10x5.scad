@@ -16,14 +16,14 @@ holder8mm(px=-12, py=-7, pz=20, rx=-22);
 yCube(szx=12, szy=10, szz=14, px=-13, py=0, pz=-11);
 yCube(szx=36, szy=10, szz=14, px=23, py=0, pz=-11);
 //axis X support - 10mm
-yCube(szx=12, szy=10, szz=40, px=-13, py=(15), pz=3);
+yCube(szx=12, szy=16, szz=40, px=-13, py=12, pz=3);
 yCube(szx=14, szy=10, szz=30, px=0, py=(15), pz=8);
 yCube(szx=18, szy=10, szz=40, px=32, py=(15), pz=3);
 //axis Y support - 5mm - not required - lying on teh bottom platform
 //axis Y support - 10mm
 yCube(szx=16, szy=48, szz=28, px=15, py=29, pz=-5);
-
 //axis Z support - 8mm
+yCube(szx=12, szy=10, szz=22, px=-13, py=4, pz=16,rx=-10);
 
 
 module holder5mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
