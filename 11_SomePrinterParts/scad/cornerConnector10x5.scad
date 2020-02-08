@@ -4,7 +4,7 @@ hCyl = 60;
 
 yCube(szx=hCyl, szy=hCyl, szz=5, px=(hCyl/2-7-12), py=(hCyl/2-7), pz=-19);
 //axis X
-holder10mm(px=(hCyl/2-7-12), py=15, pz=30, ry=90);
+holder10mm(px=(hCyl/2-7-12), py=15, pz=31, ry=90);
 holder5mm(px=(hCyl/2-7-12), pz=0, ry=90);
 //axis Y
 holder10mm(px=15, py=(hCyl/2-7), pz=15, rx=90);
@@ -12,6 +12,19 @@ holder5mm(px=0, py=(hCyl/2-7), pz=-12, rx=90);
 //axisZ holder
 holder8mm(px=-12, py=-7, pz=20, rx=-22);
 //supports
+//axis X support - 5mm
+yCube(szx=12, szy=10, szz=14, px=-13, py=0, pz=-11);
+yCube(szx=36, szy=10, szz=14, px=23, py=0, pz=-11);
+//axis X support - 10mm
+yCube(szx=12, szy=10, szz=40, px=-13, py=(15), pz=3);
+yCube(szx=14, szy=10, szz=30, px=0, py=(15), pz=8);
+yCube(szx=18, szy=10, szz=40, px=32, py=(15), pz=3);
+//axis Y support - 5mm - not required - lying on teh bottom platform
+//axis Y support - 10mm
+yCube(szx=16, szy=48, szz=28, px=15, py=29, pz=-5);
+
+//axis Z support - 8mm
+
 
 module holder5mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
     translate([px, py, pz])
