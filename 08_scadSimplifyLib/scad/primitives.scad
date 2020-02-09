@@ -32,6 +32,14 @@ module yCyl(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz
     color(clr)
         cylinder(szz, rb, rt, $fn=fn*((rb>rt)?rb:rt));    
 }//yCyl
+module yCyl2(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, rb=1, rt=1, szz=1, clr = "grey", fn = ($preview ? 2:8) ) {
+    mirror([mx,my,mz])
+    rotate([rx,ry,rz])
+    translate([px, py, (pz-szz/2)])
+    scale([sx,sy,sz])
+    color(clr)
+        cylinder(szz, rb, rt, $fn=fn*((rb>rt)?rb:rt));    
+}//yCyl
 
 //p = [[x0,y0], [x1,y1], [x2,y2]]
 module yPoly(px=0, py=0, pz=0, rx=0, ry=0, rz=0, sx=1, sy=1, sz=1, mx=0, my=0, mz=0, p=[[0,0],[10,0],[0,10]], szz=1, clr = "grey") {
