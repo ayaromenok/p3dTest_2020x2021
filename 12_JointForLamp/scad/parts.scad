@@ -2,17 +2,26 @@ include <../../08_scadSimplifyLib/scad/primitives.scad>
 
 //Foundation
 hFnd=10;
-rFnd=30;
+rFnd=50;
 //Joint
 jWidth=40;
 jLength=30;
 
 
-//yCyl(rb=rFnd, rt=rFnd*0.7, szz=hFnd);
-//yCube(szx=20, szy=2, szz=10, py=10, pz=hFnd);
-//yCube(szx=20, szy=2, szz=10, py=-10, pz=hFnd);
-//dualM5Holder(pz=-40, showMetalY=true, showMetalZ=true);
-//singleM5Holder(px=0, showMetalY=true, showMetalZ=true);
+//dualM5Holder(px=20, pz=25, showMetalY=true, showMetalZ=true);
+//singleM5Holder(px=-20, pz=25, showMetalY=true, showMetalZ=true);
+
+
+module supportBottomRotation(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    {
+        yCyl(rb=rFnd, rt=(rFnd -hFnd/2), szz=hFnd);
+        yCube(szx=(rFnd*2-hFnd*3), szy=4, szz=jLength, py=(jWidth/2+2+0.5), pz=(jLength/2+hFnd/2));
+        yCube(szx=(rFnd*2-hFnd*3), szy=4, szz=jLength, py=(-jWidth/2-2-0.5), pz=(jLength/2+hFnd/2));
+    }//transform
+}//supportBottomRotation
+
 
 
 module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false, lLineY=(jWidth+20), lLineZ=300) {    
