@@ -10,10 +10,10 @@ jLength=30;
 //yCyl(rb=rFnd, rt=rFnd*0.7, szz=hFnd);
 //yCube(szx=20, szy=2, szz=10, py=10, pz=hFnd);
 //yCube(szx=20, szy=2, szz=10, py=-10, pz=hFnd);
-dualM5Holder(pz=-40);
-singleM5Holder(px=0);
+//dualM5Holder(pz=-40, showMetalY=true, showMetalZ=true);
+//singleM5Holder(px=0, showMetalY=true, showMetalZ=true);
 
-module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
+module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false) {    
     translate([px, py, pz])
     rotate([rx,ry,rz])
     {
@@ -21,10 +21,16 @@ module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
         M5Holder(px=9.8, py=0);
         yCube(szx=10, szy=(jWidth/2-2.7), szz=10, px=9.8, py=(jWidth/4+1.35));
         yCube(szx=10, szy=(jWidth/2-2.7), szz=10, px=9.8, py=(-jWidth/4-1.35));
+        if (showMetalY){ //M8
+            yCyl2(rb=4, rt=4, szz=jWidth+20, rx=90, clr="green");
+        }
+        if (showMetalZ){ //M5
+            yCyl2(rb=2.5, rt=2.5, szz=300, px=9.8, pz=150-jLength/2-5, clr="blue");
+        }
     }//transform
 }//module
 
-module dualM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
+module dualM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false) {    
     translate([px, py, pz])
     rotate([rx,ry,rz])
     {
@@ -32,6 +38,14 @@ module dualM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
         M5Holder(px=9.8, py=(jWidth/2-5));
         M5Holder(px=9.8, py=(-jWidth/2+5));
         yCube(szx=10, szy=(jWidth-20+4.4), szz=10, px=9.8);
+        if (showMetalY){ //M8
+            yCyl2(rb=4, rt=4, szz=jWidth+20, rx=90, clr="green");
+        }
+        if (showMetalZ){ //M5
+            yCyl2(rb=2.5, rt=2.5, szz=300, px=9.8, py=(jWidth/2-5), pz=150-jLength/2-5, clr="blue");
+            yCyl2(rb=2.5, rt=2.5, szz=300, px=9.8, py=(-jWidth/2+5), pz=150-jLength/2-5, clr="blue");
+            
+        }
     }//transform
 }//module
 
