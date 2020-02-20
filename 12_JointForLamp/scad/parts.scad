@@ -12,8 +12,11 @@ lShift1=30;
 lShift2=rFnd-5;
 lAngle=30;
 
-dualM5Holder(px=20, pz=25, showMetalY=true, showMetalZ=true);
-singleM5Holder(px=-20, pz=25, showMetalY=true, showMetalZ=true);
+//singleM5Holder(px=-20, pz=25, showMetalY=true, showMetalZ=true);
+//dualM5Holder(px=20, pz=25, showMetalY=true, showMetalZ=true);
+
+//singleM6Holder(px=-20, py=70, pz=25, showMetalY=false, showMetalZ=false);
+//dualM6Holder(px=20, py=70, pz=25, showMetalY=false, showMetalZ=false);
 //supportBottomX();
 //supportBottomLegX();
 
@@ -98,6 +101,42 @@ module dualM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMe
         }
     }//transform
 }//module dualM5Holder
+
+module singleM6Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false, lLineY=(jWidth+20), lLineZ=300) {    
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    {
+        M8Holder();        
+        M6Holder(px=10.3, py=0);
+        yCube(szx=10.5, szy=(jWidth/2-3.7), szz=10, px=9.8, py=(jWidth/4+1.85));
+        yCube(szx=10.5, szy=(jWidth/2-3.7), szz=10, px=9.8, py=(-jWidth/4-1.85));
+        if (showMetalY){ //M8
+            yCyl2(rb=4, rt=4, szz=lLineY, rx=90, clr="green");
+        }
+        if (showMetalZ){ //M6
+            yCyl2(rb=3, rt=3, szz=lLineZ, px=9.8, pz=(lLineZ/2-jLength/2-5), clr="blue");
+        }
+    }//transform
+}//module singleM6Holder
+
+module dualM6Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false, lLineY=(jWidth+20), lLineZ=300) {    
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    {
+        M8Holder();
+        M6Holder(px=10.3, py=(jWidth/2-5));
+        M6Holder(px=10.3, py=(-jWidth/2+5));
+        yCube(szx=11, szy=(jWidth-20+3.4), szz=10, px=9.8);
+        if (showMetalY){ //M8
+            yCyl2(rb=4, rt=4, szz=lLineY, rx=90, clr="green");
+        }
+        if (showMetalZ){ //M5
+            yCyl2(rb=2.5, rt=2.5, szz=lLineZ, px=9.8, py=(jWidth/2-5), pz=(lLineZ/2-jLength/2-5), clr="blue");
+            yCyl2(rb=2.5, rt=2.5, szz=lLineZ, px=9.8, py=(-jWidth/2+5), pz=(lLineZ/2-jLength/2-5), clr="blue");
+            
+        }
+    }//transform
+}//module dualM6Holder
 
 module M5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
     translate([px, py, pz])
