@@ -12,8 +12,8 @@ lShift1=30;
 lShift2=rFnd-5;
 lAngle=30;
 
-//dualM5Holder(px=20, pz=25, showMetalY=true, showMetalZ=true);
-//singleM5Holder(px=-20, pz=25, showMetalY=true, showMetalZ=true);
+dualM5Holder(px=20, pz=25, showMetalY=true, showMetalZ=true);
+singleM5Holder(px=-20, pz=25, showMetalY=true, showMetalZ=true);
 //supportBottomX();
 //supportBottomLegX();
 
@@ -105,7 +105,7 @@ module M5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
     {
         difference(){
         yCyl2(rb=5, rt=5, szz=jLength, rx=0);
-        yCyl2(rb=2.7, rt=2.7, szz=jLength+2, rx=0);
+        yCyl2(rb=2.8, rt=2.8, szz=jLength+2, rx=0);
         }//diff
     }//transform
 }//module
@@ -116,7 +116,7 @@ module M8Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
     {
         difference(){
         yCyl2(rb=7, rt=7, szz=jWidth, rx=0);
-        yCyl2(rb=4.4, rt=4.4, szz=jWidth+2, rx=0);
+        yCyl2(rb=4.3, rt=4.3, szz=jWidth+2, rx=0);
         }//diff
     }//transform
 }//module
