@@ -25,7 +25,7 @@ module supportBottomRotation(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
         yCube(szx=(rFnd*2-hFnd*3), szy=4, szz=jLength, py=(jWidth/2+2+0.5), pz=(jLength/2+hFnd/2));
         yCube(szx=(rFnd*2-hFnd*3), szy=4, szz=jLength, py=(-jWidth/2-2-0.5), pz=(jLength/2+hFnd/2));
     }//transform
-}//supportBottomRotation
+}//module supportBottomRotation
 
 module supportBottomX(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
     translate([px, py, pz])
@@ -52,7 +52,7 @@ module supportBottomX(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
         }
         
     }//transform
-}//supportBottomRotation
+}//module supportBottomX
 
 module supportBottomLegX(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
     translate([px, py, pz])
@@ -61,7 +61,7 @@ module supportBottomLegX(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
                 yPoly(p=[[0,0],[100,0],[98,5],[rFnd/2,10],[rFnd/2,5],[0,5]], szz=lWidth, px=rFnd/2, py=(lWidth/2), rx=90, rz=30);
 
     }//transform
-}//supportBottomRotation
+}//module supportBottomLegX
 
 module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false, lLineY=(jWidth+20), lLineZ=300) {    
     translate([px, py, pz])
@@ -78,7 +78,7 @@ module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, show
             yCyl2(rb=2.5, rt=2.5, szz=lLineZ, px=9.8, pz=(lLineZ/2-jLength/2-5), clr="blue");
         }
     }//transform
-}//module
+}//module singleM5Holder
 
 module dualM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false, lLineY=(jWidth+20), lLineZ=300) {    
     translate([px, py, pz])
@@ -97,7 +97,7 @@ module dualM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMe
             
         }
     }//transform
-}//module
+}//module dualM5Holder
 
 module M5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
     translate([px, py, pz])
@@ -108,7 +108,18 @@ module M5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
         yCyl2(rb=2.8, rt=2.8, szz=jLength+2, rx=0);
         }//diff
     }//transform
-}//module
+}//module M5Holder
+
+module M6Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    {
+        difference(){
+        yCyl2(rb=5, rt=5, szz=jLength, rx=0);
+        yCyl2(rb=3.3, rt=3.3, szz=jLength+2, rx=0);
+        }//diff
+    }//transform
+}//module M6Holder
 
 module M8Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
     translate([px, py, pz])
@@ -119,4 +130,4 @@ module M8Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
         yCyl2(rb=4.3, rt=4.3, szz=jWidth+2, rx=0);
         }//diff
     }//transform
-}//module
+}//module M8Holder
