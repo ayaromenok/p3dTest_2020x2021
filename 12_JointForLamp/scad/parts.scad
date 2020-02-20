@@ -6,11 +6,16 @@ rFnd=50;
 //Joint
 jWidth=40;
 jLength=30;
-
+//bottom leg
+lWidth=20;
+lShift1=30;
+lShift2=rFnd-5;
+lAngle=30;
 
 //dualM5Holder(px=20, pz=25, showMetalY=true, showMetalZ=true);
 //singleM5Holder(px=-20, pz=25, showMetalY=true, showMetalZ=true);
-
+//supportBottomX();
+//supportBottomLegX();
 
 module supportBottomRotation(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
     translate([px, py, pz])
@@ -22,7 +27,41 @@ module supportBottomRotation(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {
     }//transform
 }//supportBottomRotation
 
+module supportBottomX(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    {
+        difference(){
+            yCyl(rb=rFnd, rt=rFnd, szz=(hFnd*2), pz=hFnd);
+            yCyl(rb=4.4, rt=4.4, szz=(hFnd*2+2), pz=(hFnd+1));
+            yCyl(rb=20, rt=20, szz=(hFnd*1.5+1), pz=(hFnd/2-1));
+            yCube(szx=rFnd, szy=(lWidth+0.6), szz=6, px=rFnd/2, py=15, pz=5/2-1, rz=30);
+            yCube(szx=rFnd, szy=(lWidth+0.6), szz=6, px=rFnd/2, py=-15, pz=5/2-1, rz=-30);
+            yCube(szx=rFnd, szy=(lWidth+0.6), szz=6, px=-rFnd/2, py=-15, pz=5/2-1, rz=30);
+            yCube(szx=rFnd, szy=(lWidth+0.6), szz=6, px=-rFnd/2, py=15, pz=5/2-1, rz=-30);
+            //holes for leg connection
+            yCyl(rb=1,rt=1,szz=10, px=lShift1*cos(lAngle), py=lShift1*sin(lAngle),pz=9);        
+            yCyl(rb=1,rt=1,szz=10, px=lShift1*cos(-lAngle), py=lShift1*sin(-lAngle),pz=9);
+            yCyl(rb=1,rt=1,szz=10, px=lShift1*cos(180-lAngle), py=lShift1*sin(180-lAngle),pz=9);
+            yCyl(rb=1,rt=1,szz=10, px=lShift1*cos(180+lAngle), py=lShift1*sin(180+lAngle),pz=9);
+        
+            yCyl(rb=1,rt=1,szz=10, px=lShift2*cos(lAngle), py=lShift2*sin(lAngle),pz=9);
+            yCyl(rb=1,rt=1,szz=10, px=lShift2*cos(-lAngle), py=lShift2*sin(-lAngle),pz=9);
+            yCyl(rb=1,rt=1,szz=10, px=lShift2*cos(180-lAngle), py=lShift2*sin(180-lAngle),pz=9);
+            yCyl(rb=1,rt=1,szz=10, px=lShift2*cos(180+lAngle), py=lShift2*sin(180+lAngle),pz=9);
+        }
+        
+    }//transform
+}//supportBottomRotation
 
+module supportBottomLegX(px=0, py=0, pz=0, rx=0, ry=0, rz=0) {    
+    translate([px, py, pz])
+    rotate([rx,ry,rz])
+    {
+                yPoly(p=[[0,0],[100,0],[98,5],[rFnd/2,10],[rFnd/2,5],[0,5]], szz=lWidth, px=rFnd/2, py=(lWidth/2), rx=90, rz=30);
+
+    }//transform
+}//supportBottomRotation
 
 module singleM5Holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, showMetalY=false, showMetalZ=false, lLineY=(jWidth+20), lLineZ=300) {    
     translate([px, py, pz])
