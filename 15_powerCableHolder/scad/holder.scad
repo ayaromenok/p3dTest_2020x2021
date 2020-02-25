@@ -18,7 +18,7 @@ yArc(r=30, a=[60,120], w=2, szz=36, pz=1.5, rz=180);
 //support
 difference(){
     yCyl(rb=32, rt=32, szz=3, pz=37.5);
-    yCyl(rb=30, rt=25, szz=4, pz=37.5);
+    yCyl(rb=30.7, rt=25, szz=4, pz=37.5);
     yArc(r=25, a=[30,150], w=10, szz=10, pz=35, rz=90);
     yArc(r=25, a=[30,150], w=10, szz=10, pz=35, rz=-90);
 }
