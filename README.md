@@ -12,3 +12,5 @@
  - [11](https://github.com/ayaromenok/p3dTest/issues/11) - Some printe parts for 5/10mm chassis
  - [12](https://github.com/ayaromenok/p3dTest/issues/12) - Lamp chassis(similar to Pixar's)
  - [13](https://github.com/ayaromenok/p3dTest/issues/13) - Heat recurperator test (fail ;) )
+ - [14](https://github.com/ayaromenok/p3dTest/issues/14) - fixed rotation joint - repends from used resolution (ok at 0.2mm )
+ - [15](https://github.com/ayaromenok/p3dTest/issues/15) - Holder for power cabel (OK)
