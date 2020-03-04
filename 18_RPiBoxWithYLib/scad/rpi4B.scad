@@ -2,7 +2,7 @@ include <../../../lib/lib.scad>
 
 rpiLength   = 85;
 rpiWidth    = 56;
-rpiHeight   = 25;
+rpiHeight   = 30;
 rpiRadius   = 3;
 wallTk      = 1.5;    //box wall ThiKness
 fTk         = 0.7;  //Filament addjustment ThiKness
