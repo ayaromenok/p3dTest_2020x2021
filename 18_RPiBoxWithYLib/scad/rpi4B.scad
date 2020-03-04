@@ -2,7 +2,7 @@ include <../../../lib/lib.scad>
 
 rpiLength   = 85;
 rpiWidth    = 56;
-rpiHeight   = 30;
+rpiHeight   = 35;
 rpiRadius   = 3;
 wallTk      = 1.5;    //box wall ThiKness
 fTk         = 0.7;  //Filament addjustment ThiKness
@@ -48,8 +48,20 @@ difference(){
     
     //connectors - left panel
     sdCard(px=2,py=3.5+24.5,pz=-rpiHeight/2);    
+    
+    //holes for top/camera holder/etc
+    if(rpiHeight>18){   //don't used on bottom-only boxes
+        _r=(rpiRadius>wallTk)?wallTk:rpiRadius;
+        for (i=[0:rpiRadius*2:(rpiLength-rpiRadius*2)]){    
+            ySphere(r=_r, px=(rpiRadius+i), py=-fTk, pz=(rpiHeight/2-_r*2-1));
+            ySphere(r=_r, px=(rpiRadius+i), py=(rpiWidth+fTk), pz=(rpiHeight/2-_r*2-1));
+        }//for
+    }//if
 }//diff
 
+
+
+//support
 supportBoardRPi();
 
 //check different wallTk 
