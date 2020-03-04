@@ -50,7 +50,7 @@ difference(){
     sdCard(px=2,py=3.5+24.5,pz=-rpiHeight/2);    
 }//diff
 
-//sdCard();    
+supportBoardRPi();
 
 //sdCard
 module sdCard(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
@@ -111,19 +111,24 @@ module displayMicroHDMI(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
 
 
 //support for board
-difference(){    
-    yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=3.5, pz=-rpiHeight/2);
-    yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=3.5, pz=-rpiHeight/2);
-}//diff
-difference(){    
-    yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=(3.5+49), pz=-rpiHeight/2);
-    yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=(3.5+49), pz=-rpiHeight/2);
-}//diff
-difference(){    
-    yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=3.5, pz=-rpiHeight/2);
-    yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=3.5, pz=-rpiHeight/2);
-}//diff    
-difference(){    
-    yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
-    yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
-}//diff    
+module supportBoardRPi(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz]){
+        difference(){    
+            yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=3.5, pz=-rpiHeight/2);
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=3.5, pz=-rpiHeight/2);
+        }//diff
+        difference(){    
+            yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=(3.5+49), pz=-rpiHeight/2);
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=(3.5+49), pz=-rpiHeight/2);
+        }//diff
+        difference(){    
+            yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=3.5, pz=-rpiHeight/2);
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=3.5, pz=-rpiHeight/2);
+        }//diff    
+        difference(){    
+            yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
+        }//diff    
+    }//transform
+}//module
