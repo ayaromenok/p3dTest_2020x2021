@@ -2,7 +2,7 @@ include <../../../lib/lib.scad>
 
 rpiLength   = 85;
 rpiWidth    = 56;
-rpiHeight   = 5;
+rpiHeight   = 5.5;
 rpiRadius   = 3;
 wallTk      = 1;    //box wall ThiKness
 fTk         = 0.4;  //Filament ThiKness
@@ -50,7 +50,7 @@ difference(){
     sdCard(px=2,py=3.5+24.5,pz=-rpiHeight/2);    
 }//diff
 
-supportBoardRPi();
+supportBoardRPi(pz=wallTk/2);
 
 //sdCard
 module sdCard(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
