@@ -52,6 +52,12 @@ difference(){
 
 supportBoardRPi(pz=wallTk/2);
 
+//check different wallTk 
+boxConnectorM3(px=(-3.5-wallTk), py=5, pz=-rpiHeight/2);
+boxConnectorM3(px=(-3.5-wallTk), py=(rpiWidth-5), pz=-rpiHeight/2);
+boxConnectorM3(px=(3.5+58), py=(-3.5-wallTk),pz=-rpiHeight/2);
+boxConnectorM3(px=(3.5+58), py=(rpiWidth+3.5+wallTk), pz=-rpiHeight/2);
+
 //sdCard
 module sdCard(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px-5/2), (py+1/2),pz])
@@ -108,8 +114,6 @@ module displayMicroHDMI(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     }//transform
 }//module
 
-
-
 //support for board
 module supportBoardRPi(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px),(py),pz])
@@ -130,5 +134,15 @@ module supportBoardRPi(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
             yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
             yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
         }//diff    
+    }//transform
+}//module
+
+module boxConnectorM3(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz]){
+        difference(){    
+            yCyl(rb=4.5, rt=4.5, szz=spHeight);
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2);
+        }//diff
     }//transform
 }//module
