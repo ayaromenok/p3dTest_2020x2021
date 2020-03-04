@@ -2,10 +2,10 @@ include <../../../lib/lib.scad>
 
 rpiLength   = 85;
 rpiWidth    = 56;
-rpiHeight   = 5.5;
+rpiHeight   = 25;
 rpiRadius   = 3;
-wallTk      = 1;    //box wall ThiKness
-fTk         = 0.4;  //Filament ThiKness
+wallTk      = 1.5;    //box wall ThiKness
+fTk         = 0.7;  //Filament addjustment ThiKness
 spHeight    = 2;    //SuPport Height
 //yCube(szx=rpiLength, szy=rpiWidth, szz=4, px=rpiLength/2, py=rpiWidth/2, pz=2);
 
@@ -29,41 +29,41 @@ difference(){
     yCyl(rb=1.7, rt=1.7, szz=wallTk*2, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
     
     //nut holes
-    yCyl(rb=5, rt=1.7, szz=wallTk, px=3.5, py=3.5, pz=-rpiHeight/2-wallTk*2/3);
-    yCyl(rb=5, rt=1.7, szz=wallTk, px=3.5, py=(3.5+49), pz=-rpiHeight/2-wallTk*2/3);
-    yCyl(rb=5, rt=1.7, szz=wallTk, px=(3.5+58), py=3.5, pz=-rpiHeight/2-wallTk*2/3);
-    yCyl(rb=5, rt=1.7, szz=wallTk, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2-wallTk*2/3);    
+    yCyl(rb=3.3, rt=1.7, szz=wallTk, px=3.5, py=3.5, pz=-rpiHeight/2-wallTk/2);
+    yCyl(rb=3.3, rt=1.7, szz=wallTk, px=3.5, py=(3.5+49), pz=-rpiHeight/2-wallTk/2);
+    yCyl(rb=3.3, rt=1.7, szz=wallTk, px=(3.5+58), py=3.5, pz=-rpiHeight/2-wallTk/2);
+    yCyl(rb=3.3, rt=1.7, szz=wallTk, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2-wallTk/2);    
 
     //connectors - front panel   
-    powerUSBC(px=(3.5+7.7), pz=-rpiHeight/2+spHeight+2);
-    displayMicroHDMI(px=(3.5+7.7+14.8), pz=-rpiHeight/2+spHeight+2);
-    displayMicroHDMI(px=(3.5+7.7+14.8+13.5), pz=-rpiHeight/2+spHeight+2);
+    powerUSBC(px=(3.5+7.7), pz=-rpiHeight/2+spHeight+3);
+    displayMicroHDMI(px=(3.5+7.7+14.3), pz=-rpiHeight/2+spHeight+3);
+    displayMicroHDMI(px=(3.5+7.7+14.3+13.5), pz=-rpiHeight/2+spHeight+3);
     //audio
-    yCyl2(rb=3.5, rt=3.5, szz=7, px=(3.5+7.7+14.8+13.5+7.5+7.5+1), py=-rpiHeight/2+spHeight+3.5, rx=90);
+    yCyl2(rb=4, rt=4, szz=7, px=(3.5+7.7+14.8+13.5+7.5+7.5), py=-rpiHeight/2+spHeight+4.5,rx=90);
     
     //connectors - right panel
-    ethRJ45(px=(rpiLength+wallTk/2), py=45.75, pz=-rpiHeight/2+spHeight+13/2);    
-    usbUSBA(px=(rpiLength+wallTk/2), py=27, pz=-rpiHeight/2+spHeight+15/2);
-    usbUSBA(px=(rpiLength+wallTk/2), py=9, pz=-rpiHeight/2+spHeight+15/2);
+    ethRJ45(px=(rpiLength+wallTk/2), py=45.75, pz=-rpiHeight/2+spHeight+13/2+2);    
+    usbUSBA(px=(rpiLength+wallTk/2), py=27, pz=-rpiHeight/2+spHeight+15/2+2);
+    usbUSBA(px=(rpiLength+wallTk/2), py=9, pz=-rpiHeight/2+spHeight+15/2+2);
     
     //connectors - left panel
     sdCard(px=2,py=3.5+24.5,pz=-rpiHeight/2);    
 }//diff
 
-supportBoardRPi(pz=wallTk/2);
+supportBoardRPi();
 
 //check different wallTk 
-boxConnectorM3(px=(-3.5-wallTk), py=5, pz=-rpiHeight/2);
-boxConnectorM3(px=(-3.5-wallTk), py=(rpiWidth-5), pz=-rpiHeight/2);
-boxConnectorM3(px=(3.5+58), py=(-3.5-wallTk),pz=-rpiHeight/2);
-boxConnectorM3(px=(3.5+58), py=(rpiWidth+3.5+wallTk), pz=-rpiHeight/2);
+boxConnectorM3(px=(-3.5-wallTk), py=5, pz=(-rpiHeight/2-wallTk+spHeight/2));
+boxConnectorM3(px=(-3.5-wallTk), py=(rpiWidth-5), pz=(-rpiHeight/2-wallTk+spHeight/2));
+boxConnectorM3(px=(3.5+58), py=(-3.5-wallTk),pz=(-rpiHeight/2-wallTk+spHeight/2));
+boxConnectorM3(px=(3.5+58), py=(rpiWidth+3.5+wallTk), pz=(-rpiHeight/2-wallTk+spHeight/2));
 
 //sdCard
 module sdCard(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px-5/2), (py+1/2),pz])
     rotate([rx,ry,rz]){
         minkowski(){
-            yCube(szx=5, szy=10, szz=4);            
+            yCube(szx=5, szy=12, szz=4);            
             ySphere(r=1);
         }//minkowski
     }//transform
@@ -71,22 +71,22 @@ module sdCard(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
 
 //USB-A/USB2 or 3
 module usbUSBA(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
-    translate([(px-5/2), (py+15/2),pz])
+    translate([(px-5/2), (py+15.6/2),pz])
     rotate([rx,ry,rz]){
         minkowski(){
-            yCube(szx=5, szy=15,szz=15);
-            yCyl(rb=1,rt=1, px=5/2, py=-15/2,ry=90);
+            yCube(szx=5, szy=13.6, szz=17);
+            yCyl(rb=1,rt=1, px=5/2, py=-15/2, ry=90);
         }//minkowski
     }//transform
 }//module
 
 //RJ-45/Ethernet
 module ethRJ45(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
-    translate([(px-5/2), (py+16/2),pz])
+    translate([(px-5/2), (py+17/2),pz])
     rotate([rx,ry,rz]){
         minkowski(){
-            yCube(szx=5, szy=16,szz=13);
-            yCyl(rb=1,rt=1, px=5/2, py=-16/2,ry=90);
+            yCube(szx=5, szy=15, szz=15);
+            yCyl(rb=1,rt=1, px=5/2, py=-16/2, ry=90);
         }//minkowski
     }//transform
 }//module
@@ -97,7 +97,7 @@ module powerUSBC(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px-8/2), (py+5/2),pz])
     rotate([rx,ry,rz]){
         minkowski(){
-            yCube(szx=8, szy=5,szz=2);
+            yCube(szx=8, szy=5,szz=3);
             yCyl(rb=1,rt=1, px=8/2, py=-5/2,rx=90);
         }//minkowski
     }//transform
@@ -108,7 +108,7 @@ module displayMicroHDMI(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px-6/2),(py+5/2),pz])
     rotate([rx,ry,rz]){
         minkowski(){
-            yCube(szx=6, szy=5,szz=2);
+            yCube(szx=6, szy=5,szz=3);
             yCyl(rb=1,rt=1, px=8/2, py=-5/2,rx=90);
         }//minkowski
     }//transform
@@ -119,20 +119,20 @@ module supportBoardRPi(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){
         difference(){    
-            yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=3.5, pz=-rpiHeight/2);
-            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=3.5, pz=-rpiHeight/2);
+            yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=3.5, pz=(-rpiHeight/2+spHeight/2));
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=3.5, pz=(-rpiHeight/2+spHeight/2));
         }//diff
         difference(){    
-            yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=(3.5+49), pz=-rpiHeight/2);
-            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=(3.5+49), pz=-rpiHeight/2);
+            yCyl(rb=3, rt=3, szz=spHeight, px=3.5, py=(3.5+49), pz=(-rpiHeight/2+spHeight/2));
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=3.5, py=(3.5+49), pz=(-rpiHeight/2+spHeight/2));
         }//diff
         difference(){    
-            yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=3.5, pz=-rpiHeight/2);
-            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=3.5, pz=-rpiHeight/2);
+            yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=3.5, pz=(-rpiHeight/2+spHeight/2));
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=3.5, pz=(-rpiHeight/2+spHeight/2));
         }//diff    
         difference(){    
-            yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
-            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=(3.5+49), pz=-rpiHeight/2);
+            yCyl(rb=3, rt=3, szz=spHeight, px=(3.5+58), py=(3.5+49), pz=(-rpiHeight/2+spHeight/2));
+            yCyl(rb=1.7, rt=1.7, szz=spHeight*2, px=(3.5+58), py=(3.5+49), pz=(-rpiHeight/2+spHeight/2));
         }//diff    
     }//transform
 }//module
