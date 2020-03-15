@@ -10,5 +10,28 @@ module mdl(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         yCube(szx=32, szy=32, szz=18, pz=39+26+9);
         yPoly(p=[[0,35], [68,35], [85,14], [85,-14], [68,-35], [0,-35]], szz=26, px=10);
         yCube(szx=19, szy=14, szz=7, px=-37/2+19/2, py=37/2+7, pz=3.5);
+        
+        //on X axis from left to right
+        mLowerTower(px=-37/2, py=37/2, pz=20);
+        mLowerTower(px=-37/2, py=-37/2, pz=20);
+        
+        mLowerTower(px=10, py=35, pz=20);
+        mLowerTower(px=10, py=-35, pz=20);
+        
+        mLowerTower(px=78, py=35, pz=20);
+        mLowerTower(px=78, py=-35, pz=20);
+        
+        mLowerTower(px=95, py=14, pz=20);
+        mLowerTower(px=95, py=-14, pz=20);
     }//transform
-}//module
+}//module mdl
+
+module mLowerTower(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([px, py, pz])
+    rotate([rx,ry,rz]){
+            ySphere(r=3,pz=10);
+            yCyl(rb=3,rt=3, szz=10, pz=10/2);
+            ySphere(r=3,pz=0);
+        }//transform
+}//module mLowerTower
+
