@@ -23,6 +23,12 @@ module mdl(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         
         mLowerTower(px=95, py=14, pz=20);
         mLowerTower(px=95, py=-14, pz=20);
+        
+        //upper towers
+        mUpperTower(px=(32/2), py=(32/2), pz=(39+26+18-7));
+        mUpperTower(px=(32/2), py=-(32/2), pz=(39+26+18-7));
+        mUpperTower(px=-(32/2), py=(32/2), pz=(39+26+18-7));
+        mUpperTower(px=-(32/2), py=-(32/2), pz=(39+26+18-7));
     }//transform
 }//module mdl
 
@@ -35,3 +41,10 @@ module mLowerTower(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         }//transform
 }//module mLowerTower
 
+module mUpperTower(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([px, py, pz])
+    rotate([rx,ry,rz]){
+            ySphere(r=4,pz=10);
+            yCyl(rb=4,rt=4, szz=10, pz=10/2);            
+        }//transform
+}//module mUpperTower
