@@ -12,4 +12,5 @@ mkdir png
 mkdir stl
 mkdir dxf
 mkdir scad
+git push --set-upstream origin $1
 echo "done"
