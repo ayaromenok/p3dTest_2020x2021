@@ -1,6 +1,11 @@
-#!/bin/sh
-echo "creating stucture for $1"
-#git checkout -b $1
+#!/bin/bash
+if [ "$1" != "" ]; then
+    echo "Creating stucture for: $1"
+else
+    echo "Plz, use a prequired project name as s parameter to the scrip"
+    exit
+fi
+git checkout -b $1
 mkdir $1
 cd $1
 mkdir png
