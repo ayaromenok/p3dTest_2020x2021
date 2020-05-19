@@ -14,3 +14,5 @@
  - [13](https://github.com/ayaromenok/p3dTest/issues/13) - Heat recurperator test (fail ;) )
  - [14](https://github.com/ayaromenok/p3dTest/issues/14) - fixed rotation joint - repends from used resolution (ok at 0.2mm )
  - [15](https://github.com/ayaromenok/p3dTest/issues/15) - Holder for power cabel (OK)
+ - [28](https://github.com/ayaromenok/p3dTest/issues/28) - fuselage structure (OK, but need improovement to make length unlimited)
+ 
