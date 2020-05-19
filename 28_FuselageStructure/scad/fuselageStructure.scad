@@ -1,2 +1,2 @@
-linear_extrude(height=0.8)
-import ("../dxf/bottom_side.dxf");
+linear_extrude(height=1.2)
+import ("../dxf/bottom_v2.dxf");
