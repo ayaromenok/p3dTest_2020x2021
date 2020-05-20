@@ -13,5 +13,5 @@ mkdir stl
 mkdir dxf
 mkdir scad
 git push --set-upstream origin $1
-echo "dxf/*.dfx~" > .gitignore
-echo "done"
+echo "dxf/*.dxf~" > .gitignore
+echo "done.."
