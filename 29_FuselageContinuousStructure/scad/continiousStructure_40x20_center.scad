@@ -1,7 +1,7 @@
 
 
-mo40x20(3);
-fa40x20(3);
+mo40x20(0);
+fa40x20(0);
 //mother
 module mo40x20(sections=1){
     for (i=[0:1:sections]){
