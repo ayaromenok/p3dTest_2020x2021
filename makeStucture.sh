@@ -14,4 +14,7 @@ mkdir dxf
 mkdir scad
 git push --set-upstream origin $1
 echo "dxf/*.dxf~" > .gitignore
+cd scad
+echo "include <../../../lib/lib.scad>\n\nyCube();\n" > main.scad
+cd ..
 echo "done"
