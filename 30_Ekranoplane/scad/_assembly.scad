@@ -49,8 +49,8 @@ module dualEngineHolderBottom(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     rotate([rx,ry,rz]){
         //driver board
         difference(){
-            yCube(44,44,3);
-            yCube(34,34,4);
+            yCube(38,44,3);
+            yCube(46,32,4);
             yCyl(1.6,4, 18.5, 18.5);
             yCyl(1.6,4, 18.5, -18.5);
             yCyl(1.6,4, -18.5, 18.5);
@@ -67,10 +67,24 @@ module dualEngineHolderBottom(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
                 yCyl(1.6, 4, -28.5, -38.5);
             }//dif            
         }//translate
-        yCube(3,3,70, 14.5, 18.5, -35);
-        yCube(3,3,70, -14.5, 18.5, -35);
+        //front vertical
+        yCube(3,3,70, 14.5, 20, -35);
+        yCube(3,3,70, -14.5, 20, -35);
+        translate([0, 20,-7.5])
+            difference(){
+                yCube(26,3,14.5);
+                yCyl(13,6,0,3,-4.25,90);
+            }//diff
         
+        //back vertical
         yCube(3,3,73, 14.5, -29.5, -35, -16);
         yCube(3,3,73, -14.5, -29.5, -35, -16);
+        translate([0, -21.5,-7.5])
+            rotate([-16,0,0])
+            difference(){
+                yCube(26,3,14.5);
+                yCyl(13,6,0,3,-4.25,90);
+            }//diff    
     }//translate    
 }//module
+
