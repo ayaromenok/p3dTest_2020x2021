@@ -1,6 +1,6 @@
 include <../../../lib/lib.scad>
-speakerBox();
-module speakerBox(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+speakerBox(isAmp=true);
+module speakerBox(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isAmp=false){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         difference(){
@@ -18,7 +18,15 @@ module speakerBox(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
             yCyl(1.3,10,30,-30);
             yCyl(1.3,10,-30,30);
             yCyl(1.3,10,-30,-30);    
+            
+            if (isAmp){
+                //3.5mm jack
+                yCyl(4,10, px=36, py=-66, pz=70, ry=90);
+                //Volume
+                yCyl(6,10, px=36, py=-56, pz=52, ry=90);
+            }//is Ampz
         }//dif
+        
     }//translate    
 }//module
 
