@@ -21,9 +21,9 @@ module speakerBox(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isAmp=false){
             
             if (isAmp){
                 //3.5mm jack
-                yCyl(4,10, px=36, py=-66, pz=70, ry=90);
+                yCyl(6,10, px=-46, py=-66, pz=70, ry=90);
                 //Volume
-                yCyl(6,10, px=36, py=-56, pz=52, ry=90);
+                yCyl(6,10, px=-46, py=-56, pz=52, ry=90);
             }//is Ampz
         }//dif
         
