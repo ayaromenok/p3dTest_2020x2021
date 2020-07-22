@@ -1,10 +1,10 @@
 include <../../../lib/lib.scad>
 
-_assembly();
+//_assembly();
 //gears_all();
 //gear_8x16();
-//gear_0x8();
-//gear_0x16();
+gear_0x8(rx=180);
+//gear_0x16(rx=180);
 
 //chassis_8x16();
 //rotating_handle();
@@ -36,13 +36,13 @@ module gear_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         difference(){
             union(){
                 translate([0,0,2])
-                linear_extrude(2)
+                linear_extrude(4)
                     import(file="../dxf/gear08.dxf");
 
                 linear_extrude(2)
                     import(file="../dxf/gear16.dxf");
             }//union
-            yCyl(1.7,9);
+            yCyl(1.7,13);
         }//diff
     }//transform
 }//module
@@ -53,7 +53,7 @@ module gear_0x8(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         difference(){
             union(){
                 translate([0,0,2])
-                linear_extrude(2)
+                linear_extrude(4)
                     import(file="../dxf/gear08.dxf");
                 yCyl(2.6,2, pz=1);
             }//union
@@ -70,7 +70,7 @@ module gear_0x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
                 translate([0,0,2])
                 linear_extrude(2)
                     import(file="../dxf/gear16.dxf");
-                yCyl(2.6,2, pz=1);
+                yCyl(2.6,4, pz=0);
             }//union
             yCyl(1.7,9);
         }//diff
