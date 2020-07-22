@@ -1,12 +1,13 @@
 include <../../../lib/lib.scad>
 
+_assembly();
 //gears_all();
 //gear_8x16();
 //gear_0x8();
 //gear_0x16();
 
 //chassis_8x16();
-_assembly();
+
 module _assembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
@@ -80,7 +81,7 @@ module chassis_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     rotate([rx,ry,rz]){
         difference(){
             union(){    
-                yCube(50,10,2,6);
+                yCube(60,10,2,0);
                 yCyl(2.7,4,-12.3,0,2);
                 yCyl(2.7,5,0,0,3.5);                
                 yCyl(2.7,4, 12.3,0,2);
