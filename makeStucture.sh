@@ -16,6 +16,7 @@ mkdir gcode
 git push --set-upstream origin $1
 echo "dxf/*.dxf~" > .gitignore
 cd scad
-echo -e "include <../../../lib/lib.scad>\n\nyCube();\n" > main.scad
+echo -e "include <../../../lib/lib.scad>\n\nmain();\n\nmodule main(px=0, py=0, pz=0, rx=0, ry=0, rz=0){\n    translate([(px), (py), pz])\n    rotate([rx,ry,rz]){\n        yCube();\n    }//transform\n}//module\n" > main.scad
 cd ..
+echo -e "## main/readme" > readme.md
 echo "done"
