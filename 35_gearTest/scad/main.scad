@@ -1,21 +1,21 @@
 include <../../../lib/lib.scad>
 
-//_assembly();
+_assembly();
 //gears_all();
 //gear_8x16();
 //gear_0x8(rx=180);
 //gear_0x16(rx=180);
 
-chassis_8x16();
+//chassis_8x16();
 //rotating_handle();
 
 module _assembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
-        gear_0x8(rx=0, px=-12.3,pz=6);
+        gear_0x8(rx=0, px=-12.5,pz=6);
         gear_8x16(pz=8,rz=11.5);        
-        gear_8x16(pz=6, px=12.3, rz=11.5);
-        gear_0x16(rx=180, px=24.6, pz=8, rz=10);
+        gear_8x16(pz=6, px=12.5, rz=11.5);
+        gear_0x16(rx=180, px=25, pz=8, rz=10);
         chassis_8x16();
     }//transform
 }//module
@@ -25,7 +25,7 @@ module gears_all(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         gear_8x16();
-        gear_0x8(rx=180, px=20,pz=4);
+        gear_0x8(rx=180, px=20,pz=6);
         gear_0x16(rx=180, py=20, pz=4);
     }//transform
 }//module
@@ -57,7 +57,7 @@ module gear_0x8(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
                     import(file="../dxf/gear08.dxf");
                 yCyl(2.6,2, pz=1);
             }//union
-            yCyl(1.7,9);
+            yCyl(1.7,13);
         }//diff
     }//transform
 }//module
@@ -72,7 +72,7 @@ module gear_0x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
                     import(file="../dxf/gear16.dxf");
                 yCyl(2.6,4, pz=0);
             }//union
-            yCyl(1.7,9);
+            yCyl(1.7,13);
         }//diff
     }//transform
 }//module
