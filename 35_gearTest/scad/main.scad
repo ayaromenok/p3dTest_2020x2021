@@ -3,19 +3,19 @@ include <../../../lib/lib.scad>
 //_assembly();
 //gears_all();
 //gear_8x16();
-gear_0x8(rx=180);
+//gear_0x8(rx=180);
 //gear_0x16(rx=180);
 
-//chassis_8x16();
+chassis_8x16();
 //rotating_handle();
 
 module _assembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
-        gear_0x8(rx=0, px=-12.3,pz=4);
-        gear_8x16(pz=6,rz=11.5);        
-        gear_8x16(pz=4, px=12.3, rz=11.5);
-        gear_0x16(rx=0, px=24.6, pz=4, rz=10);
+        gear_0x8(rx=0, px=-12.3,pz=6);
+        gear_8x16(pz=8,rz=11.5);        
+        gear_8x16(pz=6, px=12.3, rz=11.5);
+        gear_0x16(rx=180, px=24.6, pz=8, rz=10);
         chassis_8x16();
     }//transform
 }//module
@@ -83,15 +83,15 @@ module chassis_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         difference(){
             union(){    
                 yCube(60,10,2,0);
-                yCyl(2.7,4,-12.3,0,2);
-                yCyl(2.7,5,0,0,3.5);                
-                yCyl(2.7,4, 12.3,0,2);
-                yCyl(2.7,4, 24.6,0,2);    
+                yCyl(2.7,5,-12.5,0,3.5);
+                yCyl(2.7,7,0,0,4.5);                
+                yCyl(2.7,5, 12.5,0,3.5);
+                yCyl(2.7,4, 25,0,2);    
             }//union
-            yCyl(1.7,11,-12.3);
-            yCyl(1.7,15);            
-            yCyl(1.7,11, 12.3);
-            yCyl(1.7,11, 24.6);    
+            yCyl(1.7,15,-12.5,0,5);
+            yCyl(1.7,15,0,0,5);            
+            yCyl(1.7,15, 12.5,0,5);
+            yCyl(1.7,15, 25,0,5);    
         }//dif
     }//transform
 }//module                
