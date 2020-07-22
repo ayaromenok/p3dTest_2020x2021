@@ -7,6 +7,7 @@ _assembly();
 //gear_0x16();
 
 //chassis_8x16();
+//rotating_handle();
 
 module _assembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
@@ -94,3 +95,15 @@ module chassis_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
         }//dif
     }//transform
 }//module                
+
+module rotating_handle(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+                yCube(31,6,2);
+                yCyl(1.7,11,-12.3);                
+            }//diff
+        yCyl(2.7,11,12.3,0,5);    
+    }//transform
+}//module                
+        
