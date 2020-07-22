@@ -1,8 +1,9 @@
 include <../../../lib/lib.scad>
 
 //gear_8x16();
-//gear_8(rx=180);
-chassis_8x16();
+//gear_0x8(rx=180, px=20);
+//chassis_8x16();
+gear_0x16(rx=180);
 
 module gear_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
@@ -21,7 +22,7 @@ module gear_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     }//transform
 }//module
 
-module gear_8(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+module gear_0x8(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         difference(){
@@ -36,6 +37,20 @@ module gear_8(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     }//transform
 }//module
 
+module gear_0x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            union(){
+                translate([0,0,2])
+                linear_extrude(2)
+                    import(file="../dxf/gear16.dxf");
+                yCyl(2.6,2, pz=1);
+            }//union
+            yCyl(1.7,9);
+        }//diff
+    }//transform
+}//module
 
 module chassis_8x16(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
