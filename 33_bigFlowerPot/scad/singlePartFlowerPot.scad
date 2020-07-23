@@ -1,6 +1,7 @@
 include <../../../lib/lib.scad>
 
-singlePartFlowerPot(80,60);
+//singlePartFlowerPot(210,130);
+singleCylTest();
 
 module singlePartFlowerPot(diameter=196, height=100, px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
@@ -18,3 +19,12 @@ module singlePartFlowerPot(diameter=196, height=100, px=0, py=0, pz=0, rx=0, ry=
     }//transform
 }//module
 
+module singleCylTest(diameter=196, height=100, px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            yCyl(10,20);
+            yCyl(9.3, 20,0,0,1.01);
+        }
+    }//transform
+}//module
