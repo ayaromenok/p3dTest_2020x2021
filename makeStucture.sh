@@ -16,9 +16,9 @@ mkdir gcode
 git push --set-upstream origin $1
 echo "dxf/*.dxf~" > .gitignore
 cd scad
-FNAME=$1".scad"
+FNAME=${1##*_}".scad"
 echo $FNAME
-echo -e "include <../../../lib/lib.scad>\n\n$1();\n\nmodule $1(px=0, py=0, pz=0, rx=0, ry=0, rz=0){\n    translate([(px), (py), pz])\n    rotate([rx,ry,rz]){\n        yCube();\n    }//transform\n}//module\n" > $FNAME
+echo -e "include <../../../lib/lib.scad>\n\n${1##*_}();\n\nmodule ${1##*_}(px=0, py=0, pz=0, rx=0, ry=0, rz=0){\n    translate([(px), (py), pz])\n    rotate([rx,ry,rz]){\n        yCube();\n    }//transform\n}//module\n" > $FNAME
 cd ..
 echo -e "## main/readme" > readme.md
 echo "done"
