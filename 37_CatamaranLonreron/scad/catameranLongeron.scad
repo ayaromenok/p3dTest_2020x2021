@@ -1,8 +1,8 @@
 include <../../../lib/lib.scad>
 
-catamaranLongeron();
+catamaranLongeron(rx=90,rz=90);
 
-module catamaranLongeron(length=100, px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+module catamaranLongeron(length=120, px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         difference(){
