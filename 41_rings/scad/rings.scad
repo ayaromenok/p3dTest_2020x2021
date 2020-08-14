@@ -26,7 +26,7 @@ module rings(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
             circle(r = 4.25, $fn = 30);
         
         difference(){
-            yCyl(7,6,35.5,0,15.5);
+            yCyl(7,7,35.5,0,14.5);
             yCyl(3.25,14,34.5,0,18.25);
         }
     }//transform
