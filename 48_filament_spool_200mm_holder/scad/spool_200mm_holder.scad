@@ -1,7 +1,7 @@
 include <../../../lib/lib.scad>
 
 holder();
-holder(0,-150,0, isSideSupport=false);
+//holder(isSideSupport=false);
 //mirror([1,0,0])
 //holder();
 
