@@ -1,9 +1,10 @@
 include <../../../lib/lib.scad>
 
-holder();
+//holder();//left
 //holder(isSideSupport=false);
 //mirror([1,0,0])
-//holder();
+//holder();//right
+_assembly();
 
 module holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isSideSupport=true){
     translate([(px), (py), pz])
@@ -30,6 +31,7 @@ module holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isSideSupport=true){
             
             //M5 holes
             yCyl2(2.7,20,    -2.5,10,-130,  0,90,0);
+            yCyl2(2.7,20,    -2.5,-20,-130,  0,90,0);
             yCyl2(2.7,20,    -2.5,-95,-130,  0,90,0);
             if (isSideSupport){
                 yCyl2(2.7,20,    -50,-5,-130,  0,90,0);
@@ -40,6 +42,19 @@ module holder(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isSideSupport=true){
     }//transform
 }//module
 
+module _assembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        spool_200mm(0,40,-22,     90);
+        spool_200mm(0,-40,-22,    90);
+        yCyl2(4,200,    0,0,0,  90,0,0);        
+        holder(0,-80,0,     90);//left
+        holder(0,0,0,   90, isSideSupport=false);
+        mirror([1,0,0])
+            holder(0,80,0,  90,0,180);//right
+
+    }//transform        
+}//module
 
 module spool_200mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
