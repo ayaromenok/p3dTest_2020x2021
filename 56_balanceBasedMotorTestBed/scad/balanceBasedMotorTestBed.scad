@@ -1,22 +1,69 @@
 include <../../../lib/lib2.scad>
 
 //balanceBasedMotorTestBedSide();
-balanceBasedCenterU12mm();
-
+//balanceBasedCenterU12mm();
+//balanceBasedWeigthU12mm();
+balanceBasedMotorU12mm();
 module balanceBasedCenterU12mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         difference(){
             yCube(18,24,30);
             difference(){
-                yCube(13.0,12.6,100);
-                yCube(12.6,7.6,110, 2,0,0);
+                yCube(12.8,12.6,100);
+                yCube(12.4,7.6,110, 2,0,0);
             }//difference
             yCyl(10,20, 17,0,0,  90,00);    
         }//difference
         
     }//transform
 }//module
+
+module balanceBasedWeigthU12mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            yCube(18,30,30);
+            difference(){
+                yCube(12.8,12.6,100);
+                yCube(12.4,7.6,110, 2,0,0);
+            }//difference            
+            rotate([45,0,0]){
+                yCyl(1.4,20,  0,0,16.25,    0,90,0);
+                yCyl(1.4,20,  0,0,-16.25,    0,90,0);
+                yCyl(1.4,20,  0, 16.25,0,    0,90,0);
+                yCyl(1.4,20,  0, -16.25,0,    0,90,0);
+            }//rotate
+            yCube(20,10,34, -4,14,0);
+            yCube(20,10,34, -4,-14,0);
+        }//difference
+    }//transform
+}//module
+
+module balanceBasedMotorU12mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            yCube(18,30,30);
+            difference(){
+                yCube(12.8,12.6,100);
+                yCube(12.4,7.6,110, 2,0,0);
+            }//difference            
+            rotate([45,0,0]){
+                yCyl(0.8,20,  0,0,16.25,    0,90,0);
+                yCyl(0.8,20,  0,0,-16.25,    0,90,0);
+                yCyl(0.8,20,  0, 16.25,0,    0,90,0);
+                yCyl(0.8,20,  0, -16.25,0,    0,90,0);
+            }//rotate
+            yCube(20,10,34, 8,14,0);
+            yCube(20,10,34, 8,-14,0);
+            yCube(20,10,16, 0,14,0);
+            yCube(20,10,16, 0,-14,0);
+        }//difference
+        
+    }//transform
+}//module
+
 module balanceBasedMotorTestBedSide(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
