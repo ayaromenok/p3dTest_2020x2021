@@ -3,10 +3,10 @@ include <../../../lib/lib2.scad>
 
 //balanceBasedWeigthU12mm();
 //balanceBasedMotorU12mm();
-//balanceBasedCenterU12mm();
+balanceBasedCenterU12mm();
 //balanceBasedChassisSide(0,0,0, 90);
 //balanceBasedChassisCenter();
-_assembly();
+//_assembly();
 module _assembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
@@ -98,7 +98,11 @@ module balanceBasedCenterU12mm(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
                 yCube(12.4,7.6,110, 2,0,0);
             }//difference
             yCyl(4.4,30, 10,0,0,  90,00);    
+            //fixes
+            yCyl(1.6,30, 0,0,15,  90,00);    
+            yCyl(1.6,30, 0,0,-15,  90,00);    
         }//difference        
+        
     }//transform
 }//module
 
