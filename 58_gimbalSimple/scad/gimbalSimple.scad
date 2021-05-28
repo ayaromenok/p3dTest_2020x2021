@@ -3,9 +3,12 @@ include <../../../lib/lib2.scad>
 gimbalSimpleAssembly();
 //2 PRINT
 //gimbalSimpleP0(-50,0,27, 0,90,0, isMetal=false);
+//gimbalSimpleP0();
 //gimbalSimpleP1(isMetal=false);
 //gimbalSimpleP2(27,0,50,    0,90,180,  isMetal=false);
 //gimbalSimpleP3(0,0,43,  0,180,0);
+//gimbalSimpleP3();
+//gimbalSimpleP0_support();
 
 module gimbalSimpleAssembly(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isMetal=true){
     translate([(px), (py), pz])
@@ -23,8 +26,18 @@ module gimbalSimpleP3(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isMetal=true){
         //blMotor1605();
        //blMotor1605x3(); 
        
-       blMotor1605x3(0,0,-1); 
-       //yCube(11,12,5,   13.5,0,2.5); 
+       blMotor1605x3(0,0,-1, 0,0,30); 
+        difference(){
+            yCube(3,26,26,   0,0,18.5); 
+            translate([0,0,18.5]){
+                yCyl(1.3,10, 0,10.5,10.5,  0,90,0); 
+                yCyl(1.3,10, 0,10.5,-10.5,  0,90,0); 
+                yCyl(1.3,10, 0,-10.5,10.5,  0,90,0); 
+                yCyl(1.3,10, 0,-10.5,-10.5,  0,90,0); 
+            }//translate
+            yCube(14,14,25, 0,0,13);    
+        }//difference
+        
        //yCube(4,12,18,   21,0,9); 
        
     }//transform
@@ -73,8 +86,47 @@ module gimbalSimpleP0(px=0, py=0, pz=0, rx=0, ry=0, rz=0, isMetal=true){
        if (isMetal){
           blMotor1605(30,0,50, 0,-90,0);  
        }//if
+       
+       difference(){
+            yCube(24,18,4,   31,-4,22);  
+           
+            yCyl(1.7,10, 35,0,22);
+            translate([35,0,22])
+            for (i=[180:45:270]){
+                rotate([0,0,i])
+                    yCyl(1.7,10, 10,0,0);
+            }//for
+        }//difference    
     }//transform
 }//module
+
+module gimbalSimpleP0_support(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            yCube(42,32,4);
+            
+            yCube(30,20,5);
+            yCyl(1.7,10,    17.5,12.5,0);
+            yCyl(1.7,10,    17.5,-12.5,0);
+            yCyl(1.7,10,    -17.5,12.5,0);
+            yCyl(1.7,10,    -17.5,-12.5,0);
+        }//difference
+        
+        translate([0,0,41])
+        rotate([0,90,0])
+       difference(){
+            yCube(24,18,4,   31,-4,22);             
+            yCyl(1.7,10, 35,0,22);
+            translate([35,0,22])
+            for (i=[180:45:270]){
+                rotate([0,0,i])
+                    yCyl(1.7,10, 10,0,0);
+            }//for
+        }//difference       
+    }//transform
+}//module
+
 module blMotor1605x3(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
