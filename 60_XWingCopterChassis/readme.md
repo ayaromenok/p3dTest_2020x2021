@@ -15,3 +15,6 @@
 - 10        - camera
 - -----
 - 232 gramm total
+
+Try to use PRi with servo hat and gps/barometer/accelerometer and PPM signal resiveing from FS-iA6B
+https://docs.emlid.com/navio2/dev/video-streaming
