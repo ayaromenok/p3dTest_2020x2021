@@ -1,6 +1,7 @@
 include <../../../lib/lib2.scad>
 include <../../../lib/lib2/lib2_motor.scad>
 include <../../../lib/lib2/lib2_prop.scad>
+include <../../../lib/lib2/lib2_servo.scad>
 
 propBasket2212_back_inch5(0,0,36, 180,0,0);
 propBasket2212_front_inch5();
@@ -11,7 +12,7 @@ module engine2212_support(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         
-        blMotor2212_bot(0,0,14);        
+        blMotor2212_bot(0,0,14, 0,0,90);        
         yCube(8,6,4, 16,0,-1 );
         yCube(8,6,4, -16,0,-1 );
         yCube(6,8,4, 0,16,-1 );
