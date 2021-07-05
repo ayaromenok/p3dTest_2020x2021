@@ -1,10 +1,49 @@
 include <../../../lib/lib2.scad>
 
 
-conn_2x1x1();
+conn_open_2x1x1(0,0,0,  0,-90,0);
+//conn_2x1x1();
 //profile_L_10x10x2();
 //profile_L_10x10x1();
 
+module conn_open_2x1x1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz]){        
+        difference(){
+            union(){
+                yCube(46,12,12, 24,6,6);
+                yCube(12,46,12, 7,23,6);
+                yCube(12,12,46,  7,6,23);
+            }//union
+            profile_L_10x10x1(0,35,0,   0,0,-90);
+            profile_L_10x10x1(0,0,35,   0,90,0);
+            profile_L_10x10x2(35);
+            //holes
+            yCyl(0.7,30,    40,5,5);
+            yCyl(0.7,30,    30,5,5);
+            yCyl(0.7,30,    35,5,5, 90);
+            yCyl(0.7,30,    25,5,5, 90);
+        
+            yCyl(0.7,30,    5,40,5);
+            yCyl(0.7,30,    5,30,5);
+            yCyl(0.7,30,    5,35,5, 0,90);
+            yCyl(0.7,30,    5,25,5, 0,90);
+        
+            yCyl(0.7,30,    5,5,40, 90);
+            yCyl(0.7,30,    5,5,30, 90);
+            yCyl(0.7,30,    5,5,35, 90,0,90);
+            yCyl(0.7,30,    5,5,25, 90,0,90);
+        }//difference
+        
+        yPoly(p=[[0,0],[34,0],[0,34]], szz=3, px=12,py=12,pz=0);       
+        yPoly(p=[[0,0],[34,0],[0,34]], szz=3, px=12,py=3,pz=12, rx=90);    
+        yPoly(p=[[0,0],[34,0],[0,34]], szz=3, px=4,py=12,pz=12, ry=-90);
+        
+        //support
+        yCube(9,0.45,1,    5.5,45.7,0.5);
+        yCube(9,1,0.45,    5.5,0.5,45.7);
+    }//transform
+}//module
 module conn_2x1x1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){        
