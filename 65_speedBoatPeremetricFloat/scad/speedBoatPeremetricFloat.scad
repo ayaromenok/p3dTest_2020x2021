@@ -1,6 +1,6 @@
 include <../../../lib/lib2.scad>
 
-//speedBoatPeremetricFloat_v0();
+speedBoatPeremetricFloat_v0();
 speedBoatPeremetricFloat_center_v0();
 
 module speedBoatPeremetricFloat_v0(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
@@ -70,5 +70,12 @@ module speedBoatPeremetricFloat_center_v0(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         rotate([90,0,0])
         linear_extrude(1)
             polygon( points=[[0,15],[10,0],[0,-15], [2,-20],[-20,-20],[-20,20], [2,20]]);;
+        //connectors
+        yTube(2,0.7,6,  28,-3,17, 0,90,0);
+        yTube(2,0.7,6,  28,-3,-17, 0,90,0);
+        yTube(2,0.7,6,  28,-51.9,17, 0,90,0);
+        yTube(2,0.7,6,  28,-51.9,-17, 0,90,0);
+        yTube(2,0.7,6,  28,-97,17, 0,90,0);
+        yTube(2,0.7,6,  28,-97,-17, 0,90,0);
     }//transform
 }//module
