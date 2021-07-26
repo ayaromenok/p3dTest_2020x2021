@@ -1,6 +1,19 @@
 include <../../../lib/lib2.scad>
 
-autoLevelingSensorConenctor();
+//200x200
+/*
+difference(){
+    yCube(200,200,1.5);
+    yCube(199.15,199.15,2.3);
+}
+*
+//100x100 
+/*
+difference(){
+    yCube(100,100,1.5);
+    yCube(99.15,99.15,2.3);
+}*/
+//autoLevelingSensorConenctor();
 
 module autoLevelingSensorConenctor(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
     translate([(px), (py), pz])
@@ -21,6 +34,8 @@ module autoLevelingSensorConenctor(px=0, py=0, pz=0, rx=0, ry=0, rz=0){
             yCyl(2,10,  -16,16,0);
             yCyl(2,10,  -16,-16,0);
         }//difference
+        yCube(2,15,8, 19,0,5);
+        yCube(2,15,8, -19,0,5);
     }//transform
 }//module
 
