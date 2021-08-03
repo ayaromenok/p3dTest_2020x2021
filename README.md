@@ -1,4 +1,10 @@
 # p3dtest
+
+| # | Image | Status | Descriotion |
+| --- | --- | --- | --- |
+| [68](https://github.com/ayaromenok/p3dTest/issues/68) |   ![Sail boat](https://github.com/ayaromenok/p3dTest/blob/68_sailBoat/master/png/68icon.jpg?raw=true) | OK |Sail boat prototype with mast from 12x12x1.5 aluminium profile "
+
+
  - [01](https://github.com/ayaromenok/p3dTest/issues/1) - [Dove tail Joint test](https://en.wikipedia.org/wiki/Dovetail_joint)
  - [02](https://github.com/ayaromenok/p3dTest/issues/2) - hierarchy scene test in OpenSCAD
  - [03](https://github.com/ayaromenok/p3dTest/issues/3) - [SK C/28 naval gun(Anmiral Graf Spee main gun)](https://en.wikipedia.org/wiki/28_cm_SK_C/28_naval_gun)
