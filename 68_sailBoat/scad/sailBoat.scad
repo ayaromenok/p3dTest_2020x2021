@@ -1,8 +1,8 @@
 include <../../../lib/lib2.scad>
 include <../../../lib/lib2/ext/servo.scad>
 
-sailBoat_assmebly();
-//sailBoat_mainMastMount(px=-20,rz=0, isMetal=true);
+//sailBoat_assmebly();
+sailBoat_mainMastMount(px=-20,rz=0, isMetal=false);
 //sailBoat_geek(0,0,0); //same for front
 //sailBoat_leaf(20,0,15);
 //sailBoat_6leaf(rx=180); //should be printed upsidedown
@@ -12,10 +12,10 @@ module sailBoat_assmebly(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){
         sailBoat_mainMastMount(px=-20,rz=0, isMetal=true);
-        sailBoat_geek(-20,0,34); 
+        sailBoat_geek(-22,0,34); 
         sailBoat_geek(188,0,34); 
         sailBoat_leaf(0,0,62);
-        sailBoat_leaf2geek(-20,0,35);
+        sailBoat_leaf2geek(-22,0,35);
         sailBoat_leaf(0,0,275);
         sailBoat_6leaf(0,0,515);
         yPoly(p=[[35,40],[175,40],[25,510]], rx=90);
@@ -29,15 +29,15 @@ module sailBoat_leaf2geek(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
         difference(){
             union(){
                 yTube(5,1.7,6,  0,0,19);
-                yMinkCubeSphere(30,10,10,   4,  -20,0,0);
+                yMinkCubeCyl(30,10,10,   4,  -20,0,0, 90,0,0);
                 //yMinkCubeSphere(10,6,6,   1.5, -8,0,19);
                 yMinkCubeSphere(18,6,6,   1.5, -8,0,10, 0,-80,0);
                 yMinkCubeSphere(36,6,6,   1.5, -18,0,10, 0,-33,0);
             }//union            
-            yMinkCubeSphere(155,6.5,6.5, 2.5, -75,0,00);
+            yMinkCubeSphere(155,6.7,6.7, 2.5, -75,0,00);
             //M2.5
             //yCyl(1.4,10,    10,0,0,  0,90,0);
-            yCube(60,10,10,  -20,0,-8);
+            yCube(60,12,10,  -20,0,-8);
             yCyl(1.2,20,    -10,0,0, 90,0,0);
             yCyl(1.2,20,    -30,0,0, 90,0,0);
         }//difference        
@@ -76,9 +76,9 @@ module sailBoat_leaf(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
     rotate([rx,ry,rz]){
         difference(){
             union(){
-                yTube(5,1.7,6,  -20,0,-2);
-                yMinkCubeSphere(22,18,10,   4,  1,0,0);
-                yMinkCubeSphere(20,6,6,   1.5, -8,0,-2);
+                yTube(5,1.7,6,  -22,0,-2);
+                yMinkCubeSphere(16,20,10,   4,  -2,0,0);
+                yMinkCubeSphere(20,6,6,   1.5, -9,0,-2);
             }//union
             translate([0,0,-50]){
                 yCube(12.5,2.0,100, 0,5.25,50);
@@ -118,7 +118,7 @@ module sailBoat_mainMastMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
                 yCube(30,70,8,  20,0,0);
                 yCube(90,30,8,  10,0,0);                               
                 yCube(16,16,50, 20,0,25);
-                yCube(34,16,20, -5,0,10);
+                yCube(37,16,20, -6,0,10);
                 //nose
                 yMinkCubeSphere(34,18,24, 3, 203,0,8);
                 yMinkCubeSphere(190,10,12, 3,  120,0,2);
@@ -138,15 +138,15 @@ module sailBoat_mainMastMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
                 yCube(2.0,12.5,100, 5.25,0,50);
             }//translate
             //SG90 - grot sail
-            yCube(23,13,50, -5,0,0);
-            yCube(23,6,50, -4,0,0);     
-            yCyl(0.6,50,    9,0,25);
-            yCyl(0.6,50,    -19,0,25);
-            yCube(5,20,5, 5,-10,-4, 0,45,0);
-            yCube(27,13,20, -5,0,0);
+            yCube(23.5,13,50, -7,0,0);
+            yCube(23,6,50, -6,0,0);     
+            yCyl(0.6,50,    7,0,25);
+            yCyl(0.6,50,    -21,0,25);
+            yCube(5,20,5,   3,-10,-4, 0,45,0);
+            yCube(27,13,20, -7,0,0);
             //SG90 - staksel sail
             translate([208,0,0]){
-                yCube(23,13,50, -5,0,0);
+                yCube(23.5,13,50, -5,0,0);
                 yCube(23,6,50, -4,0,0);     
                 yCyl(0.6,50,    9,0,25);
                 yCyl(0.6,50,    -19,0,25);                
@@ -161,7 +161,7 @@ module sailBoat_mainMastMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
         
             
         if(isMetal){
-            servoSg90(-5,0,15, 0,0,180);
+            servoSg90(-7,0,15, 0,0,180);
             servoSg90(203,0,15, 0,0,180);
             //alu profil U-like 12x12x1.5mm
             //*
