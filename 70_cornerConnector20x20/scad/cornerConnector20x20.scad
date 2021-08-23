@@ -1,12 +1,27 @@
 include <../../../lib/lib2.scad>
 
 
+//con_x2__nuts_x5();
 //cornerConnector20x20();
-cornerConnector20x20(rx=180, isLight=true);
 //cornerConnector20x20(rx=180);
-
+//cornerConnector20x20(rx=180, isLight=true);
 //alu20x20_cut(50);
 //nutsHolderM3_20x20(rx=180);
+
+module con_x2__nuts_x5(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isLight=false){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz]){
+        cornerConnector20x20(rx=180, isLight=true);
+        mirror([1,0,0])
+            cornerConnector20x20(0,-65,0,rx=180,rz=180, isLight=true);
+        
+        nutsHolderM3_20x20(20,-22.5,-0.5,rx=180);
+        nutsHolderM3_20x20(33,-22.5,-0.5,rx=180);
+        nutsHolderM3_20x20(45,-22.5,-0.5,rx=180);
+        nutsHolderM3_20x20(57.5,-45,-0.5,rx=180);
+        nutsHolderM3_20x20(57.5,0,-0.5,rx=180);
+    }//transform
+}//module
 
 module nutsHolderM3_20x20(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
