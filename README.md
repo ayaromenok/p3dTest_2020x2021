@@ -2,6 +2,9 @@
 
 | # | Image | Status | Descriotion |
 | --- | --- | --- | --- |
+| [71](https://github.com/ayaromenok/p3dTest/issues/71) |   ![Butterfly nut holde](https://github.com/ayaromenok/p3dTest/blob/master/71_butterflyNutHolder/png/71icon.jpg?raw=true) | OK | Butterfly nut holder for M3 "
+| [70](https://github.com/ayaromenok/p3dTest/issues/70) |   ![Corner connector for 20x20](https://github.com/ayaromenok/p3dTest/blob/master/70_cornerConnector20x20/png/70icon.jpg?raw=true) | OK | Corner connector and nuts holder for 20x20 aluminium profile/M3 bolts"
+| [69](https://github.com/ayaromenok/p3dTest/issues/69) |   ![Caterpillar track](https://github.com/ayaromenok/p3dTest/blob/master/69_continuousTrack4Screw25mm/png/69icon.jpg?raw=true) | OK | Caterpillar track for 2.5mm screws "
 | [68](https://github.com/ayaromenok/p3dTest/issues/68) |   ![Sail boat](https://github.com/ayaromenok/p3dTest/blob/master/68_sailBoat/png/68icon.jpg?raw=true) | OK |Sail boat prototype with mast from 12x12x1.5 aluminium profile "
 
 
