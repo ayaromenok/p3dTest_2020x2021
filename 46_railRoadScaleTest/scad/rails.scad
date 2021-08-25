@@ -10,22 +10,65 @@ include <../../../lib/lib.scad>
 
 
 
+yCube(71,20,0.8, 0,-41, -0.4);
+translate([3,-32,0])
+rotate([0,0,-90])
+linear_extrude(0.6)
+    text("1:87",4.5);
+translate([9,-32,0])
+rotate([0,0,-90])
+    linear_extrude(0.7)
+    text("1:64",4.5);
+translate([15,-32,0])
+rotate([0,0,-90])
+    linear_extrude(0.8)
+    text("1:48",4.5);
+translate([21.5,-32,0])
+rotate([0,0,-90])
+    linear_extrude(0.9)
+    text("1:32",4.5);
+translate([29.5,-32,0])
+rotate([0,0,-90])
+    linear_extrude(1.0)
+    text("1:22.5",4.5);
 
+translate([-3,-44,0])
+rotate([0,0,90])
+    linear_extrude(0.6)
+    text("1:87",4.5);
+translate([-9,-44,0])
+rotate([0,0,90])
+    linear_extrude(0.7)
+    text("1:64",4.5);
+translate([-15,-44,0])
+rotate([0,0,90])
+    linear_extrude(0.8)
+    text("1:48",4.5);
+translate([-21.5,-44,0])
+rotate([0,0,90])
+    linear_extrude(0.9)
+    text("1:32",4.5);
+translate([-29.5,-49,0])
+rotate([0,0,90])
+    linear_extrude(1.0)
+    text("1:22.5",4.5);
+    
+    railEU(16.5/2,30,  scale=87,length=60);
+    railEU(-16.5/2,30, scale=87,length=60);
+    railEU(22.43/2,30,  scale=64,length=60);
+    railEU(-22.43/2,30, scale=64,length=60);
+    railEU(31/2,30, scale=48,length=60);
+    railEU(-31/2,30, scale=48,length=60);
+    railEU(45/2,30, scale=32,length=60);
+    railEU(-45/2,30, scale=32,length=60);
+    railEU(64/2,30, scale=22.5,length=60);
+    railEU(-64/2,30, scale=22.5,length=60);
+//railRoadTieWoodEU();
 
+for (i=[-30:15:30]){
+    yCube(71,3,0.8, 0,i, -0.4);
+}
 
-
-    railEU(10, scale=64);
-    railRoadTieWoodEU();
-    //railEU(20, scale=48);
-    //railEU(30, scale=32);
-    //railEU(40, scale=22.5);
-
-
-
-//yCube(50,3,0.8, 25,0, -0.4);
-//yCube(50,3,0.8, 25,-10, -0.4);
-//yCube(50,3,0.8, 25,-20, -0.4);
-//yCube(50,3,0.8, 25,-30, -0.4);
 
 module railSectionStrait(px=0,py=0,pz=0, rx=0,ry=0,rz=0, scale=64, length=30){
     //size in France w=140,h=153 - aprox 150mm
