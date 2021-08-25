@@ -14,18 +14,20 @@ include <../../../lib/lib.scad>
 
 
 
-    railEU(10, scale=64);
-    railRoadTieWoodEU();
-    //railEU(20, scale=48);
-    //railEU(30, scale=32);
-    //railEU(40, scale=22.5);
+    railEU(22.43/2,30,  scale=64,length=60);
+    railEU(-22.43/2,30, scale=64,length=60);
+    railEU(31/2,30, scale=48,length=60);
+    railEU(-31/2,30, scale=48,length=60);
+    railEU(45/2,30, scale=32,length=60);
+    railEU(-45/2,30, scale=32,length=60);
+    railEU(64/2,30, scale=22.5,length=60);
+    railEU(-64/2,30, scale=22.5,length=60);
+//railRoadTieWoodEU();
 
+for (i=[-30:15:30]){
+    yCube(71,3,0.8, 0,i, -0.4);
+}
 
-
-//yCube(50,3,0.8, 25,0, -0.4);
-//yCube(50,3,0.8, 25,-10, -0.4);
-//yCube(50,3,0.8, 25,-20, -0.4);
-//yCube(50,3,0.8, 25,-30, -0.4);
 
 module railSectionStrait(px=0,py=0,pz=0, rx=0,ry=0,rz=0, scale=64, length=30){
     //size in France w=140,h=153 - aprox 150mm
