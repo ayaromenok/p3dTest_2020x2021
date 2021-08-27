@@ -4,8 +4,8 @@ include <../../../lib/lib2/ext/prop.scad>
 
 
 //engineMount();
-pushPullEngineMount();
-//pushPullEngineMount(isMetal=true);
+//pushPullEngineMount();
+pushPullEngineMount(isMetal=true);
 
 module pushPullEngineMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
     translate([(px),(py),pz])
@@ -30,7 +30,7 @@ module pushPullEngineMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
             }//union
             yMinkCubeCyl(14,14,115, 6.5,  0,0,55, sx=5.8);
             yCyl(10,120, 0,0,120,    0,90,0, sx=1.5);            
-            yMinkCubeCyl(22,52,40, 5,  0,0,20,  90);    
+            yMinkCubeCyl(26,82,40, 5,  0,0,40,  90);    
         }//difference
         
         //to chassis
@@ -54,10 +54,10 @@ module pushPullEngineMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
         if(isMetal){
             //front motor        
             blMotor2212(57,0,120,    0,90,0);
-            prop8040_3(77,0,120,    0,90,0);        
+            prop7040_3(77,0,120,    0,90,0);        
             //back motor        
             blMotor2212(-57,0,120,    0,-90,0);
-            prop8040_3(-77,0,120,    0,90,0);
+            prop7040_3(-77,0,120,    0,90,0);
         }//isMetal            
     }//transform
 }//module
@@ -67,7 +67,7 @@ module engineMount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isMetal=false){
     rotate([rx,ry,rz]){
         translate([0,0,9.2])
         difference(){
-            yMinkCubeSphere(7.5,7.5,20,  3.7, sx=3);
+            yMinkCubeSphere(8.5,8.5,20,  3.7, sx=3);
             yCube(30,20,20, 0,0,-10);
             yCube(20,20,20, 10,0,9.5);
             yCyl(0.8,10,    0,0,7.3,  0,90,0);
