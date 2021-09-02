@@ -1,6 +1,38 @@
 include <../../../lib/lib2.scad>
 
-floatHiSpeed_front_v3_top(sx=0.5,sy=0.5,sz=0.5);
+
+floatHiSpeed_front_v3_tb(ry=-90,sx=0.5,sy=0.5,sz=0.5);
+//floatHiSpeed_front_v3(sx=0.5,sy=0.5,sz=0.5);
+//floatHiSpeed_front_v3_top(sx=0.5,sy=0.5,sz=0.5);
+
+module floatHiSpeed_front_v3_tb(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz])
+    scale([sx,sy,sz]){   
+        difference(){
+            floatHiSpeed_front_v3(py=10, sx=0.5,sy=0.5,sz=0.5);
+            yCube(110,60,60,    50,30,-25);
+        }//difference
+        difference(){
+            floatHiSpeed_front_v3(py=-10, sx=0.5,sy=0.5,sz=0.5);
+            yCube(110,60,60,    50,-30,-25);
+        }//difference
+
+        rotate([180,0,0])
+        scale([1,1,0.5]) {
+            difference(){
+                floatHiSpeed_front_v3(py=10, sx=0.5,sy=0.5,sz=0.5);
+                yCube(110,60,60,    50,30,-25);
+                yCyl(5,50,  20,0,-30, sx=2);
+            }//difference
+            difference(){
+                floatHiSpeed_front_v3(py=-10, sx=0.5,sy=0.5,sz=0.5);
+                yCube(110,60,60,    50,-30,-25);
+                yCyl(5,50,  20,0,-30, sx=2);
+            }//difference            
+        }//transform        
+    }//transform
+}//module 
 
 module floatHiSpeed_front_v3(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1){
     translate([(px),(py),pz])
@@ -18,7 +50,7 @@ module floatHiSpeed_front_v3(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1){
                     translate([300, 0, 0])
                     polygon( points=[[20,0], [4,-80],[-60,-84],[-60,84], [4,80]]);
                 }//intersection
-                translate([0,0,1.5])
+                translate([0,0,1.61])
                 intersection(){
                     yCyl(79,120, 0,0,-50,  0,0,90, $fn=100, sy=2.5);
 
