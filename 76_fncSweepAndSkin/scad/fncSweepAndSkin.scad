@@ -12,7 +12,7 @@ module fncSweepAndSkin(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){
         skin(morph(
-            profile1=transform(translation([0,0,0]), profile1([2,.2])),
+            profile1=transform(translation([0,0,0]), profile1([2,.2])),            
             /*profile2=transform(translation([0,0,3]),  rectangle_profile([2,.2])),*/
             profile2=transform(translation([0,0,3]),  circle(r=1, $fn=20)),
             slices=40)
