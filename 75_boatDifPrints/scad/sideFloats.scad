@@ -5,14 +5,16 @@ include <../../../lib/lib2.scad>
 //sideFloatBig(rx=90,rz=45);
 //sideFloatMiddle(rx=90,rz=45); //won't work like this
 
-sideFloatPart(0,-110,rx=90);
-//mirror([0,1,0])
-//sideFloatPart(0,-110,rx=90);
-module sideFloatPart(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1){
+//use 100% fill
+//sideFloatPartOuter(0,-200,rx=90);
+mirror([0,1,0])
+sideFloatPartOuter(0,-200,rx=90);
+
+module sideFloatPartOuter(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1, tk=1.15){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])
     scale([sx,sy,sz]){  
-        points=[[5,0], [10,0],[5,60],[10,70],[-50,70],[-50,69],[8,69],[4,60],[8,5]];
+        points=[[6,0], [10,0],[5,60],[10,70],[-50,70],[-50,70-tk],[10-tk-0.1,70-tk],[5-tk,60],[10-tk,3]];
         points2=[[8,0], [10,0],[5,60],[10,70],[-50,70],[-50,0]];
         difference(){            
             difference(){
@@ -22,9 +24,9 @@ module sideFloatPart(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1){
                     rotate_extrude(angle=30,convexity = 10, $fn = 200)
                     translate([330, 0, 0])
                         polygon(points);        
-                   // yPoly(points2, 1,   -00,0,-240,    0,90,180);
-                    }//union                
-               yCube(350,150,100,  140,0,-154);
+                    yPoly(points2, tk,   0,0,-240,    0,90,180);
+               }//union                
+              yCube(350,150,100,  140,0,-154);
             }//difference
         
             
