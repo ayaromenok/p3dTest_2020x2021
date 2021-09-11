@@ -10,9 +10,12 @@ include <../../../lib/lib2.scad>
 //mirror([0,1,0])
 //sideFloatPartOuter(0,-200,rx=90);
 
-sideFloatPartInner(0,235,rx=-90);
-mirror([0,1,0])
-sideFloatPartInner(0,235,rx=-90);
+//yTube(30,29.3,100,  0,0,50);
+//yCyl(30,1.1);
+
+//sideFloatPartInner(0,235,rx=-90);
+//mirror([0,1,0])
+//sideFloatPartInner(0,235,rx=-90);
 //sideFloatPartInner();
 module sideFloatPartInner (px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1, tk=1.15, w=50,h=40){
     translate([(px),(py),pz])
