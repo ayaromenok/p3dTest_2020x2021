@@ -1,6 +1,6 @@
 include <../../../lib/lib2.scad>
 
-//yCube(800,190,150,  -400,0,,75);
+//yCube(20,20,50);
 //infill 8%
 //trim 4mm
 //boatDifPrintsHiSpeedTop(0,0,39,    0,0,0, 1.7,1.3,1.5);
@@ -11,7 +11,7 @@ include <../../../lib/lib2.scad>
 //boatDifPrintsHiSpeedCut2(part=0);
 //boatDifPrintsHiSpeedCut2(part=1);
 //boatDifPrintsHiSpeedCut2(part=2);//don't need to cut - almost - engine holders
-boatDifPrintsHiSpeedCut2(part=3);//don't need to cut - almost - engine holders
+//boatDifPrintsHiSpeedCut2(part=3);//don't need to cut - almost - engine holders
 
 //boatDifPrintsHiSpeedCut2(rx=180,part=0);
 //boatDifPrintsMariner(0,0,0,    0,0,180, 0.35,0.4,0.6);
