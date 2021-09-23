@@ -2,9 +2,9 @@ include <../../../lib/lib2.scad>
 
 step=0.2;
 step_shp=40;
-floatDualCurvedCenter(length=120);
-//floatDualCurvedFront();
-//floatDualCurvedFront(isBot=false);
+floatDualCurvedCenter(-120,length=120);
+floatDualCurvedFront();
+floatDualCurvedFront(isBot=false);
 
 module floatDualCurvedFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1, part=0, isBot=true){
     translate([(px),(py),pz])
