@@ -2,9 +2,9 @@ include <../../../lib/lib2.scad>
 
 step=0.2;
 step_shp=40;
-//floatDualCurvedCenter(length=80);
-floatDualCurvedFront();
-floatDualCurvedFront(isBot=false);
+floatDualCurvedCenter(length=120);
+//floatDualCurvedFront();
+//floatDualCurvedFront(isBot=false);
 
 module floatDualCurvedFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1, part=0, isBot=true){
     translate([(px),(py),pz])
@@ -52,19 +52,30 @@ module floatDualCurvedCenter(px=0,py=0,pz=0, rx=0,ry=0,rz=0, sx=1,sy=1,sz=1, par
             import("../svg/dualProfile_open.svg",center=true);                 
             
         
-        for (i=[0:step_shp:length-1]){
+        for (i=[step_shp:step_shp:length-1]){
             translate([i+0.4,0,-0.6])
             rotate([-90,0,90])
             linear_extrude(0.42)                    
-                import("../svg/dualProfile_closed.svg",center=true); 
+                import("../svg/dualProfile_closed_internal.svg",center=true); 
             yTube(2.5,0.8,5,  i+2.5,25,-15.6);
             yTube(2.5,0.8,5,  i+2.5,-25,-15.6);
         }//for        
+        //first
+        translate([0.41,0,-0.6])
+        rotate([-90,0,90])
+        linear_extrude(0.41)                    
+            import("../svg/dualProfile_closed.svg",center=true);             
+        yTube(2.5,0.8,5,  2.5,25,-15.6);
+        yTube(2.5,0.8,5,  2.5,-25,-15.6);
+
         //last
         translate([length,0,-0.6])
         rotate([-90,0,90])
         linear_extrude(0.41)                    
             import("../svg/dualProfile_closed.svg",center=true);             
+        yTube(2.5,0.8,5,  length-2.5,25,-15.6);
+        yTube(2.5,0.8,5,  length-2.5,-25,-15.6);
+
     }//transform
 }//module
  
