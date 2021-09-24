@@ -4,9 +4,24 @@ include <scad-utils/transformations.scad>
 include <scad-utils/lists.scad>
 include <scad-utils/shapes.scad>
 include <list-comprehension-demos/skin.scad>
+include <list-comprehension-demos/sweep.scad>
 
 
-fncSweepAndSkin();
+function drop(t) = 100 * 0.5 * (1 - cos(180 * t)) * sin(180 * t) + 1;
+function path(t) = [0, 0, 80 + 80 * cos(180 * t)];
+function rotate(t) = 180 * pow((1 - t), 3);
+
+$fn=12;
+function shape() = circle(1,$fn=6);
+//function shape() = difference(){circle(5);circle(4)};
+//function shape() = polygon(points=[[0,0],[10,0],[0,10]]);
+
+step = 0.01;
+path_transforms = [for (t=[0:step:1-step]) translation(path(t)) * rotation([0,0,0]) * scaling([drop(t), drop(t), 1])];
+sweep(shape(), path_transforms);
+
+
+//fncSweepAndSkin();
 
 module fncSweepAndSkin(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])

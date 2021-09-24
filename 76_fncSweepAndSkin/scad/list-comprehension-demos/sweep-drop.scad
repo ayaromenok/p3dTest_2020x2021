@@ -1,6 +1,6 @@
 use <sweep.scad>
-use <scad-utils/transformations.scad>
-use <scad-utils/shapes.scad>
+use <../scad-utils/transformations.scad>
+use <../scad-utils/shapes.scad>
 
 function drop(t) = 100 * 0.5 * (1 - cos(180 * t)) * sin(180 * t) + 1;
 function path(t) = [0, 0, 80 + 80 * cos(180 * t)];
