@@ -20,7 +20,7 @@ module HipsSizeTest(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
             yCube(5,0.79,150, 2.5,25);
             yPoly(p=[[0,-5],[6,0],[0,5]], szz=150, px=0,py=-25, pz=-75);
             //horizontal
-            yCube(7,150,7,  3.5,0,-72.5);
+            yCube(7,150,7,  3.5,0,-71.5);
             yPoly(p=[[0,0],[7,0],[0,7]], szz=150, px=0,py=-75, pz=75,rx=-90);
         }//union
         
