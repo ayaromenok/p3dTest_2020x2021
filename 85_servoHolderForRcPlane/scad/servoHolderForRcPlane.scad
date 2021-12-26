@@ -2,7 +2,7 @@ include <../../../../p3d/lib/lib2.scad>
 include <../../../../p3d/lib/lib2/ext/servo.scad>
 
 servoHolderForRcPlane(isMetal=false, isTop=false);
-servoHolderForRcPlane(isMetal=false, isTop=true);
+//servoHolderForRcPlane(isMetal=false, isTop=true);
 //tailWheel(-20,14,-10);
 module servoHolderForRcPlane(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isTop=false, isMetal=false){
     translate([(px),(py),pz])
@@ -45,12 +45,10 @@ module servoHolderForRcPlane(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isTop=false, isMeta
                 yCyl(0.8,20,  20,8,10);
                 yCyl(0.8,20,  -20,8,10);                
                 yCyl(0.8,20,  10,-5,0);
-                yCyl(0.8,20,  -10,-5,0);
-                //back chassis
-                yCyl(4,20, 20,14,5.1);    
+                yCyl(0.8,20,  -10,-5,0);  
             }//difference
-            //back chassis
-            yTube(4,1.0,10, 20,14,-10);    
+            //back chassis removed to back of fuselage. also need to fix it in strait position
+            
         }//if isTop        
         
         if(isMetal){
