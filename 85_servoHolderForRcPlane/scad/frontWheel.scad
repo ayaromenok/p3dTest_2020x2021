@@ -7,7 +7,7 @@ frontWheel();
 module frontWheel(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){
-        yTube(5,2.7,14,     0,0,0);
+        yTube(5,1.6,18,     0,0,2);
         yTube(50,49.2,14,   0,0,0 );
         yTube(50,45,1.2,    0,0,-6.4 );
         for(i = [0:60:360]){
