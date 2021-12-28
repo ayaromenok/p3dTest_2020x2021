@@ -8,7 +8,7 @@ module frontWheel(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){
         yTube(5,1.7,18,     0,0,2);
-        yTube(50,49.2,10,   0,0,-2 );
+        yTube(50,48.7,10,   0,0,-2 );
         yTube(50,45,1.2,    0,0,-6.4 );
         for(i = [0:60:360]){
             rotate([0,0,i])
