@@ -53,19 +53,19 @@ rotate([0,0,90])
     linear_extrude(1.0)
     text("1:22.5",4.5);
     
-    railEU(16.5/2,30,  scale=87,length=60);
-    railEU(-16.5/2,30, scale=87,length=60);
-    railEU(22.43/2,30,  scale=64,length=60);
-    railEU(-22.43/2,30, scale=64,length=60);
-    railEU(31/2,30, scale=48,length=60);
-    railEU(-31/2,30, scale=48,length=60);
-    railEU(45/2,30, scale=32,length=60);
-    railEU(-45/2,30, scale=32,length=60);
-    railEU(64/2,30, scale=22.5,length=60);
-    railEU(-64/2,30, scale=22.5,length=60);
+    railEU(16.5/2,90,  scale=87,length=120);
+    railEU(-16.5/2,90, scale=87,length=120);
+    railEU(22.43/2,90,  scale=64,length=120);
+    railEU(-22.43/2,90, scale=64,length=120);
+    railEU(31/2,90, scale=48,length=120);
+    railEU(-31/2,90, scale=48,length=120);
+    railEU(45/2,90, scale=32,length=120);
+    railEU(-45/2,90, scale=32,length=120);
+    railEU(64/2,90, scale=22.5,length=120);
+    railEU(-64/2,90, scale=22.5,length=120);
 //railRoadTieWoodEU();
 
-for (i=[-30:15:30]){
+for (i=[-30:15:90]){
     yCube(71,3,0.8, 0,i, -0.4);
 }
 
