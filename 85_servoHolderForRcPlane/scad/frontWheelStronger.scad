@@ -1,8 +1,7 @@
 include <../../../../p3d/lib/lib2.scad>
 
 
-frontWheelStronger(isLeft=true);
-//frontWheelPart();
+frontWheelStronger(isLeft=false);
 
 module frontWheelStronger(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isLeft=false){
     translate([(px),(py),pz])
@@ -11,7 +10,7 @@ module frontWheelStronger(px=0,py=0,pz=0, rx=0,ry=0,rz=0, isLeft=false){
         yTube(50,44,8,   0,0,-2 );        
         for(i = [0:60:360]){
             rotate([0,0,i])
-            yCyl(5,45,  0,25,-2,  90,(isLeft?60:0),0, $fn=3);
+            yCyl(4.63,45,  0,25,-2,  90,(isLeft?60:0),0, $fn=3);
         }
     }//transform
 }//module  
