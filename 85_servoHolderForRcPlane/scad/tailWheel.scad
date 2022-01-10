@@ -5,8 +5,8 @@ tailWheel();
 module tailWheel(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz]){
-        yTube(4,1.1,8,     0,0,3);
-        yTube(4,1.1,8,     0,0,-3);
+        yTube(6,1.2,8,     0,0,3);
+        yTube(6,1.2,8,     0,0,-3);
         yTube(30,28.7,5,   0,0,-3.5 );
         yTube(30,25,1.2,    0,0,-6.4 );
         for(i = [0:60:360]){
